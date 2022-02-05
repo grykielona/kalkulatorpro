@@ -1,20 +1,35 @@
-import React from 'react'
-import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import { CssBaseline } from '@material-ui/core'
+import React, { useMemo, useState } from 'react'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import Brightness4Icon from '@mui/icons-material/Brightness4'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
+import IconButton from '@mui/material/IconButton'
 
-const darkTheme = createTheme({
-  palette: {
-    type: 'dark',
-  },
-})
+const Layout = ({ children }) => {
+  const [mode, setMode] = useState('dark')
 
-const a = 323
+  const customTheme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode]
+  )
 
-function Layout({ children }) {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={customTheme}>
       <CssBaseline />
-      <div className="" />
+
+      <IconButton
+        sx={{ ml: 1 }}
+        onClick={() => setMode((prevMode) => (prevMode === 'dark' ? 'light' : 'dark'))}
+        color="inherit"
+      >
+        {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+
       {children}
     </ThemeProvider>
   )
