@@ -1,10 +1,12 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "kalkulatorpro",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "kalkulatorpro",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "bk",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "gatsby": "^4.6.2",
     "gatsby-plugin-gatsby-cloud": "^4.6.0",
     "gatsby-plugin-image": "^2.6.0",
@@ -20,6 +22,12 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1"
   },
   "keywords": [
@@ -30,7 +38,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
+    "start": "gatsby develop --open",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
