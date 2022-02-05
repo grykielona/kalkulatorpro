@@ -14,7 +14,11 @@
   "plugins": ["react"],
   "rules": {
     "linebreak-style": ["error", "windows"],
+    "react/prop-types": [0],
     "semi": ["error", "never"],
-    "react/prop-types": ["disable"]
+    "react/function-component-definition": [0],
+    "object-curly-newline": [0],
+    "comma-dangle": [0],
+    "implicit-arrow-linebreak": [0]
   }
 }
