@@ -38,6 +38,7 @@ const MainNavbar = ({ mode, setMode }) => {
         </Toolbar>
       </AppBar>
       <Toolbar />
+      {/* Above toolbar doing some margin */}
     </>
   )
 }

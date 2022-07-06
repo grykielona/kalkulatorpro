@@ -2,9 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { Grid } from '@mui/material'
-import Brightness4Icon from '@mui/icons-material/Brightness4'
-import Brightness7Icon from '@mui/icons-material/Brightness7'
-import IconButton from '@mui/material/IconButton'
+
 import MainNavbar from './MainNavbar'
 import Footer from './Footer'
 
@@ -53,15 +51,6 @@ const Layout = ({ children }) => {
           <Footer />
         </Grid>
       </Grid>
-      <IconButton
-        sx={{ ml: 1 }}
-        onClick={() => setMode((prevMode) => (prevMode === 'dark' ? 'light' : 'dark'))}
-        color="inherit"
-      >
-        {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-      </IconButton>
-
-      {children}
     </ThemeProvider>
   )
 }
