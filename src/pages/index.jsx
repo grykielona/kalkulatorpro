@@ -47,6 +47,7 @@ const IndexPage = () => (
         <br />
         &nbsp;
         {/* <Button variant="text" color="primary">
+        <Button variant="text" color="primary">
           Text
         </Button>
         &nbsp;
@@ -127,6 +128,8 @@ const IndexPage = () => (
         <Button variant="outlined" color="success">
           Outlined
         </Button>
+        <br />
+        <br />
         <Link color="error" component={GLink} to="/404">
           Link
         </Link>
