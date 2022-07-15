@@ -2,9 +2,10 @@ import React, { useMemo } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { Grid } from '@mui/material'
-import MainNavbar from './MainNavbar'
+import MainNavbar from './Navbar/MainNavbar'
 import Footer from './Footer'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
+import Seo from '../seo'
 
 const Layout = ({ children }) => {
   const { mode } = useDarkModeContext()
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
       createTheme({
         palette: {
           mode,
+          // primary: { main: '#c0c0c0' },
           primary: { main: '#002C66' },
         },
         typography: {
@@ -37,6 +39,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={customTheme}>
       <CssBaseline />
+      <Seo title="test" />
 
       <Grid container direction="column" sx={{ minHeight: '100vh' }}>
         <Grid item>

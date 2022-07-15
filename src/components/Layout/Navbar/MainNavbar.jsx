@@ -1,6 +1,16 @@
 import React from 'react'
-import { AppBar, Box, Container, Toolbar, Typography } from '@mui/material'
-import DarkModeSwitch from './DarkModeSwitch'
+import {
+  AppBar,
+  Box,
+  Container,
+  Toolbar,
+  Typography,
+  Link as MuiLink,
+  IconButton,
+} from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import NavbarMenu from './NavbarMenu'
+import NavbarLogo from './NavbarLogo'
 
 const MainNavbar = () => (
   <>
@@ -16,14 +26,16 @@ const MainNavbar = () => (
             sx={{
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'space-between',
             }}
           >
-            <span>SomethinS</span>
-            <DarkModeSwitch />
-            Some nav
-            <Typography component="span" sx={{ ml: 2 }}>
-              Something
-            </Typography>
+            <NavbarLogo />
+
+            <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+              <MenuIcon fontSize="large" />
+            </IconButton>
+
+            <NavbarMenu />
           </Box>
         </Container>
       </Toolbar>
