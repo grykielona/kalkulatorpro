@@ -1,15 +1,13 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { Grid } from '@mui/material'
-
 import MainNavbar from './MainNavbar'
 import Footer from './Footer'
+import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 
 const Layout = ({ children }) => {
-  const darkModeLocalSt = window.localStorage.getItem('darkMode')
-
-  const [mode, setMode] = useState(darkModeLocalSt || 'light')
+  const { mode } = useDarkModeContext()
 
   const customTheme = useMemo(
     () =>
@@ -42,7 +40,7 @@ const Layout = ({ children }) => {
 
       <Grid container direction="column" sx={{ minHeight: '100vh' }}>
         <Grid item>
-          <MainNavbar mode={mode} setMode={setMode} />
+          <MainNavbar />
         </Grid>
         <Grid item flexGrow={1}>
           {children}

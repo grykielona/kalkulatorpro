@@ -45,44 +45,7 @@ const IndexPage = () => (
           consectetur adipisicing elit. Itaque laudantium distinctio quidem. Natus, ea.
         </div>
         <br />
-        &nbsp;
-        {/* <Button variant="text" color="primary">
-        <Button variant="text" color="primary">
-          Text
-        </Button>
-        &nbsp;
-        <Button variant="contained" color="primary">
-          Contained
-        </Button>
-        &nbsp;
-        <Button variant="outlined" color="primary">
-          Outlined
-        </Button>
-        <br />
-        <br />
-        &nbsp;
-        <Button variant="text" color="secondary">
-          Text
-        </Button>
-        &nbsp;
-        <Button variant="contained" color="secondary">
-          Contained
-        </Button>
-        &nbsp;
-        <Button variant="outlined" color="secondary">
-          Outlined
-        </Button>
-        <br />
-        <br />
-        &nbsp;
-        <Button variant="text" color="error">
-          Text
-        </Button>
-        &nbsp;
-        <Button variant="contained" color="error">
-          Contained
-        </Button> */}
-        &nbsp;
+        &nbsp; &nbsp;
         <Button variant="outlined" color="error">
           Outlined
         </Button>

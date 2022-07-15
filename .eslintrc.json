@@ -13,6 +13,9 @@
   },
   "plugins": ["react"],
   "rules": {
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": "off",
+    "no-unused-vars": "warn",
     "linebreak-style": ["error", "windows"],
     "react/prop-types": [0],
     "semi": ["error", "never"],
