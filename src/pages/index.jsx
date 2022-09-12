@@ -1,13 +1,11 @@
 import * as React from 'react'
 import Container from '@mui/material/Container'
-import { Box, Button, Divider, Link, Typography } from '@mui/material'
+import { Button, Divider, Link } from '@mui/material'
 import { Link as GLink } from 'gatsby'
-import Seo from '../components/seo'
 import Hero from '../components/Hero'
 
 const IndexPage = () => (
   <>
-    <Seo title="Home" />
     <Hero />
     <br />
 
@@ -26,7 +24,20 @@ const IndexPage = () => (
       </Button>
       <br />
       <br />
+      <Button variant="text" color="primary">
+        Text
+      </Button>
       &nbsp;
+      <Button variant="contained" color="primary">
+        Contained
+      </Button>
+      &nbsp;
+      <Button variant="outlined" color="primary">
+        Outlined
+      </Button>
+      &nbsp;
+      <br />
+      <br />
       <Button variant="text" color="warning">
         Text
       </Button>

@@ -1,11 +1,13 @@
 import React, { useMemo } from 'react'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme, ThemeProvider, experimental_sx as sx } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { Grid } from '@mui/material'
 import MainNavbar from './Navbar/MainNavbar'
 import Footer from './Footer'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 import Seo from '../seo'
+
+const PRIMARY_MAIN = '#002C66'
 
 const Layout = ({ children }) => {
   const { mode } = useDarkModeContext()
@@ -16,7 +18,7 @@ const Layout = ({ children }) => {
         palette: {
           mode,
           // primary: { main: '#c0c0c0' },
-          primary: { main: '#002C66' },
+          primary: { main: PRIMARY_MAIN },
         },
         typography: {
           h1: {
