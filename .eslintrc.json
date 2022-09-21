@@ -16,7 +16,7 @@
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": "off",
     "no-unused-vars": "warn",
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": "off",
     "react/prop-types": [0],
     "semi": ["error", "never"],
     "react/function-component-definition": [0],

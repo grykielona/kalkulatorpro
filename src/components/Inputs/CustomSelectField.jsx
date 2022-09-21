@@ -1,25 +1,47 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import React from 'react'
+import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material'
+import React, { useState } from 'react'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 
 const focusedColors = (mode) => (mode === 'light' ? 'primary.main' : 'grey.300')
 
-const CustomSelectField = () => {
+const CustomSelectField = ({ menuItem, label, width, labelId, onChange }) => {
+  const [selectValue, setSelectValue] = useState('')
   const { mode } = useDarkModeContext()
 
   return (
-    <FormControl sx={{ width: '55%' }}>
-      <InputLabel id="demo-simple-select-label">Rodzja czynnika</InputLabel>
+    <FormControl
+      sx={{
+        width,
+        '& label.Mui-focused': {
+          color: focusedColors(mode),
+        },
+        '& .MuiOutlinedInput-root': {
+          '&.Mui-focused fieldset': {
+            borderColor: focusedColors(mode),
+          },
+        },
+      }}
+    >
+      <InputLabel shrink id={labelId}>
+        {label}
+      </InputLabel>
       <Select
+        notched
         size="small"
-        labelId="demo-simple-select-label"
-        value="s"
-        label="Rodzja czynnika"
-        onChange={() => {}}
+        labelId={labelId}
+        value={selectValue}
+        label={label}
+        onChange={(e) => {
+          const val = e.target.value
+          setSelectValue(val)
+          onChange(val)
+        }}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {menuItem?.map(({ itemValue, itemLabel }) => (
+          <MenuItem key={`${itemLabel}-${itemValue}`} value={itemValue}>
+            {itemLabel}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   )
