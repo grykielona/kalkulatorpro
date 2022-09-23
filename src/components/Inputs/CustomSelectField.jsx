@@ -4,7 +4,7 @@ import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 
 const focusedColors = (mode) => (mode === 'light' ? 'primary.main' : 'grey.300')
 
-const CustomSelectField = ({ menuItem, label, width, labelId, onChange }) => {
+const CustomSelectField = ({ menuItem, label, width = '100%', labelId, onChange }) => {
   const [selectValue, setSelectValue] = useState('')
   const { mode } = useDarkModeContext()
 
@@ -26,6 +26,7 @@ const CustomSelectField = ({ menuItem, label, width, labelId, onChange }) => {
         {label}
       </InputLabel>
       <Select
+        // @ts-ignore
         notched
         size="small"
         labelId={labelId}
