@@ -1,20 +1,38 @@
-import React, { useMemo } from 'react'
-import { createTheme, ThemeProvider, experimental_sx as sx } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
 import { Grid } from '@mui/material'
-import MainNavbar from './Navbar/MainNavbar'
-import Footer from './Footer'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import React, { useMemo } from 'react'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 import Seo from '../seo'
+import Footer from './Footer'
+import MainNavbar from './Navbar/MainNavbar'
 
 const PRIMARY_MAIN = '#002C66'
 
 const Layout = ({ children }) => {
   const { mode } = useDarkModeContext()
-
+  const isDark = mode === 'dark'
   const customTheme = useMemo(
     () =>
       createTheme({
+        components: {
+          MuiTab: {
+            styleOverrides: {
+              root: {
+                fontSize: '0.75rem',
+                '&.Mui-selected': {
+                  color: isDark ? 'white' : 'primary',
+                },
+              },
+            },
+          },
+          MuiTabs: {
+            styleOverrides: {
+              root: {},
+              indicator: { background: isDark ? 'white' : 'primary' },
+            },
+          },
+        },
         palette: {
           mode,
           // primary: { main: '#c0c0c0' },
@@ -43,7 +61,7 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <Seo title="test" />
 
-      <Grid container direction="column" sx={{ minHeight: '100vh' }}>
+      <Grid container direction="column" sx={{ minHeight: '100vh', minWidth: '320px' }}>
         <Grid item>
           <MainNavbar />
         </Grid>
