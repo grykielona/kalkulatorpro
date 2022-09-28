@@ -76,3 +76,31 @@ export const spiroPipes = {
   1000: 1000,
   1250: 1250,
 }
+
+export const arrayOfInternalDiameters = (pipeType) => {
+  let type
+  if (pipeType === 0.007001) {
+    type = ppPipesDiametersPN16
+  } else if (pipeType === 0.007002) {
+    type = ppPipesDiametersPN20
+  } else if (pipeType === 0.007003) {
+    type = pexPipesDiameters
+  } else {
+    type = steelPipesDiameters
+  }
+  return Object.values(type)
+}
+
+export const arrayOfLabelDiameters = (pipeType) => {
+  let type
+  if (pipeType === 0.007001) {
+    type = ppPipesDiametersPN16
+  } else if (pipeType === 0.007002) {
+    type = ppPipesDiametersPN20
+  } else if (pipeType === 0.007003) {
+    type = pexPipesDiameters
+  } else {
+    type = steelPipesDiameters
+  }
+  return Object.keys(type)
+}

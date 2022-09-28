@@ -1,9 +1,10 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:jest/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -11,7 +12,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["jest", "react"],
   "rules": {
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": "off",
@@ -22,6 +23,9 @@
     "react/function-component-definition": [0],
     "object-curly-newline": [0],
     "comma-dangle": [0],
-    "implicit-arrow-linebreak": [0]
+    "implicit-arrow-linebreak": [0],
+    "operator-linebreak": "off",
+    "no-plusplus": "off",
+    "function-paren-newline": "off"
   }
 }
