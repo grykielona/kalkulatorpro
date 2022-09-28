@@ -54,7 +54,7 @@ export const getFluidDensity = (specificHeat, temp) => {
   let fluidDensity
   switch (specificHeat) {
     case 4.2:
-      fluidDensity = calcWaterDensity(temp)
+      fluidDensity = roundToDigits(calcWaterDensity(temp), 1)
       break
     case 3.63:
       fluidDensity = 1052
