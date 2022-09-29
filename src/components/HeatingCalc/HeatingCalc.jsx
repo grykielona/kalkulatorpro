@@ -1,17 +1,13 @@
 import { Grid, Paper, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import { mediumTypes, pipeRoughness } from '../../helpers/enums'
+import { calcArrayOfPressDropLiquid, validateTemp } from '../../helpers/physicalCalculations'
 import CustomSelectField from '../Inputs/CustomSelectField'
 import CustomTextField from '../Inputs/CustomTextField'
 
 const paperSX = { py: 1, px: 2 }
 
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
-
-const testMenuItem = [
-  { itemValue: 10, itemLabel: 'ten' },
-  { itemValue: 20, itemLabel: 'twenty' },
-  { itemValue: 30, itemLabel: 'thirty' },
-]
 
 const GRID_SPACING = 1
 
@@ -23,7 +19,29 @@ const HeatingCalc = () => {
   const [flowCDPS, setFlowCDPS] = useState('')
   const [pipeType, setPipeType] = useState(0.15)
   const [typeOfFluid, setTypeOfFluids] = useState(4.2)
+  const [results, setResults] = useState({})
 
+  const calculateResults = (pipeType, flowCMPH, temp, typeOfFluid) => {
+    if (flowCMPH === '' || temp === '') {
+      return setResults({})
+    }
+    console.log('results')
+    setResults(calcArrayOfPressDropLiquid(pipeType, flowCMPH, temp, typeOfFluid))
+  }
+
+  const handleCMPHChange = (e) => {
+    setFlowCMPH(e)
+    calculateResults(pipeType, e, temp, typeOfFluid)
+  }
+
+  const handleTempChange = (e) => {
+    const validatedTemp = validateTemp(e)
+    setTemp(validatedTemp)
+    console.log(validatedTemp, typeof validatedTemp)
+    calculateResults(pipeType, flowCMPH, validatedTemp, typeOfFluid)
+  }
+
+  console.log('_________________render')
   return (
     <Grid container spacing={GRID_SPACING}>
       <Grid item xs={12}>
@@ -33,11 +51,12 @@ const HeatingCalc = () => {
             <Grid container spacing={GRID_SPACING} item xs={12} md={8}>
               <Grid item xs={7}>
                 <CustomSelectField
+                  defaultValue={typeOfFluid}
                   label="Rodzaj czynnika"
                   labelId="type-of-fluid"
-                  menuItem={testMenuItem}
+                  menuItem={mediumTypes}
                   onChange={(e) => {
-                    console.log(e)
+                    setTypeOfFluids(e)
                   }}
                 />
               </Grid>
@@ -45,15 +64,16 @@ const HeatingCalc = () => {
                 <CustomTextField
                   label="Temp. czynnika °C"
                   value={temp}
-                  onChange={(val) => setTemp(val)}
+                  onChange={handleTempChange}
                 />
               </Grid>
             </Grid>
             <Grid item xs={12} md={4}>
               <CustomSelectField
+                defaultValue={0.15}
                 label="Rodzaj rury"
                 labelId="type-of-pipe"
-                menuItem={testMenuItem}
+                menuItem={pipeRoughness}
                 onChange={(e) => {
                   console.log(e)
                 }}
@@ -86,11 +106,7 @@ const HeatingCalc = () => {
           <Typography sx={typograhySX}>Dobór na podstawie przepływu</Typography>
           <Grid container spacing={GRID_SPACING}>
             <Grid xs={6} item>
-              <CustomTextField
-                value={flowCMPH}
-                onChange={(val) => setFlowCMPH(val)}
-                label="Przepływ m3/h"
-              />
+              <CustomTextField value={flowCMPH} onChange={handleCMPHChange} label="Przepływ m3/h" />
             </Grid>
             <Grid xs={6} item>
               <CustomTextField
@@ -101,6 +117,9 @@ const HeatingCalc = () => {
             </Grid>
           </Grid>
         </Paper>
+      </Grid>
+      <Grid>
+        <pre>{JSON.stringify(results, null, 2)}</pre>
       </Grid>
     </Grid>
   )

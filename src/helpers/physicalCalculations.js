@@ -8,7 +8,7 @@ export const validateTemp = (temp) => {
   if (temp > 150) {
     validTemp = 150
   }
-  if (temp <= 0) {
+  if (temp < 0) {
     validTemp = 1
   }
   return validTemp
@@ -158,9 +158,7 @@ export const calcLambda = (pipeRoughness, reynolds, diameter) => {
     }
     counter++
   } while (Math.abs(lambdaL - lambdaR) > 0.01)
-  console.log(counter)
-  console.log(lambdaR)
-  console.log(lambdaL)
+
   return lambd
 }
 
