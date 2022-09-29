@@ -31,25 +31,6 @@ export const calcWaterDensity = (temp) =>
   (1 + 16.89785e-3 * temp)
 
 // get Fluid density in kg/m3 depends on specificHeat and temp
-// export const getFluidDensity = (specificHeat, temp) => {
-//   let fluidDensity;
-//   specificHeat *= 1;
-//   if (specificHeat == 4.2) {
-//     fluidDensity = calcWaterDensity(temp);
-//   } else if (specificHeat == 3.63) {
-//     fluidDensity = 1052;
-//   } else if (specificHeat == 3.54) {
-//     fluidDensity = 1059;
-//   } else if (specificHeat == 3.77) {
-//     fluidDensity = 1034;
-//   } else if (specificHeat == 3.7) {
-//     fluidDensity = 1036;
-//   } else if (specificHeat == 1.005) {
-//     fluidDensity = 1.2;
-//   } else fluidDensity = 1000;
-//   return fluidDensity;
-// };
-
 export const getFluidDensity = (specificHeat, temp) => {
   let fluidDensity
   switch (specificHeat) {
@@ -159,7 +140,7 @@ export const calcReynolds = (flowSpeed, diameterInMM, kinVisc) =>
 
 // returns lambda in [-]  args ([mm], [-], [mm])
 export const calcLambda = (pipeRoughness, reynolds, diameter) => {
-  let lambd = 0.00001
+  let lambd = 0.00005
   let lambdaL
   let lambdaR
   let counter = 1
@@ -172,11 +153,14 @@ export const calcLambda = (pipeRoughness, reynolds, diameter) => {
         pipeRoughness / 1000 / (3.71 * (diameter / 1000)) + 2.51 / (reynolds * Math.sqrt(lambd))
       )
     lambd += 0.00002
-    if (counter === 555555) {
+    if (counter === 500000) {
       break
     }
     counter++
-  } while (Math.abs(lambdaL - lambdaR) > 0.005)
+  } while (Math.abs(lambdaL - lambdaR) > 0.01)
+  console.log(counter)
+  console.log(lambdaR)
+  console.log(lambdaL)
   return lambd
 }
 
@@ -237,7 +221,7 @@ export const calcGasPressureDrop = (flow, diameter) => {
 // Making selection of pipe based on pressure drop.
 // It returns proper pipe and then 2 smaller and 2 bigger pipes
 // to see how it looks like. Returns Array of Objects.
-export const calcArrayOfPressDrop = (
+export const calcArrayOfPressDropLiquid = (
   pipeType,
   flow,
   temp,

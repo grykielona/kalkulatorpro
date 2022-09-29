@@ -1,10 +1,10 @@
-export const mediumTypes = {
-  'Woda ': 4.2,
-  'Glik. etyl. 35% (-20°C)': 3.63,
-  'Glik. etyl. 40% (-25°C)': 3.54,
-  'Glik. prop. 37% (-20°C)': 3.77,
-  'Glik. prop. 42% (-25°C)': 3.7,
-}
+export const mediumTypes = [
+  { itemLabel: 'Woda ', itemValue: 4.2 },
+  { itemLabel: 'Glik. etyl. 35% (-20°C)', itemValue: 3.63 },
+  { itemLabel: 'Glik. etyl. 40% (-25°C)', itemValue: 3.54 },
+  { itemLabel: 'Glik. prop. 37% (-20°C)', itemValue: 3.77 },
+  { itemLabel: 'Glik. prop. 42% (-25°C)', itemValue: 3.7 },
+]
 
 export const pipeRoughness = {
   'Rury stalowe k=0,15 mm': 0.15,

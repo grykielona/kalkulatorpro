@@ -21,6 +21,8 @@ const HeatingCalc = () => {
   const [deltaTemp, setDeltaTemp] = useState('')
   const [flowCMPH, setFlowCMPH] = useState('')
   const [flowCDPS, setFlowCDPS] = useState('')
+  const [pipeType, setPipeType] = useState(0.15)
+  const [typeOfFluid, setTypeOfFluids] = useState(4.2)
 
   return (
     <Grid container spacing={GRID_SPACING}>
