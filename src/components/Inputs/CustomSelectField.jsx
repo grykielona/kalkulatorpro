@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import React, { useState } from 'react'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 
