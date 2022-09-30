@@ -203,11 +203,11 @@ export const calcPressureDrop = (
 }
 
 // return flow in m3/h args (K, kW, Kj/kg*K, °C)
-export const flowBasedOnPower = (deltaTemp, powerInKW, specificHeat, temp) =>
+export const getFlowBasedOnPower = (deltaTemp, powerInKW, specificHeat, temp) =>
   (powerInKW / (deltaTemp * specificHeat) / (getFluidDensity(specificHeat, temp) / 1000)) * 3.6
 
 // return power in kW args (K, m3/h, Kj/kg*K, °C)
-export const powerBasedOnFlow = (deltaTemp, flowCMPH, specificHeat, temp) =>
+export const getPowerBasedOnFlow = (deltaTemp, flowCMPH, specificHeat, temp) =>
   ((flowCMPH * 1000) / 3600) * getFluidDensity(specificHeat, temp) * specificHeat * deltaTemp
 
 // returns Pressure drop in Pa/m (args in [m3/h], [mm])
