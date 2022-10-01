@@ -1,21 +1,17 @@
 import { Grid, Paper, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { mediumTypes, pipeRoughness } from '../../helpers/enums'
-import {
-  calcArrayOfPressDropLiquid,
-  cmphToLps,
-  getFlowBasedOnPower,
-  lpsToCmph,
-  roundToDigits,
-  validateTemp,
-} from '../../helpers/physicalCalculations'
-import CustomSelectField from '../Inputs/CustomSelectField'
-import CustomTextField from '../Inputs/CustomTextField'
-import ResultList from '../Result/ResultList'
+import { mediumTypes, pipeRoughness } from '../../../helpers/enums'
+import * as Calc from '../../../helpers/physicalCalculations'
+import CustomSelectField from '../../Inputs/CustomSelectField'
+import CustomTextField from '../../Inputs/CustomTextField'
+import ResultList from '../../Result/ResultList'
 
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
 const GRID_SPACING = 1
+
+const POWER_INPUT = 'POWER_INPUT'
+const FLOW_INPUT = 'FLOW_INPUT'
 
 const HeatingCalc = () => {
   const [temp, setTemp] = useState(80)
@@ -26,53 +22,59 @@ const HeatingCalc = () => {
   const [pipeType, setPipeType] = useState(0.15)
   const [typeOfFluid, setTypeOfFluids] = useState(4.2)
   const [results, setResults] = useState(null)
+  const [lastCalc, setLastCalc] = useState('')
 
   useEffect(() => {
     if (flowCMPH === '' || temp === '') {
       setResults(null)
       return
     }
-    setResults(calcArrayOfPressDropLiquid(pipeType, flowCMPH, temp, typeOfFluid))
-  }, [temp, flowCMPH, flowCDPS, pipeType])
+    setResults(Calc.getArrayOfPressDropLiquid(pipeType, flowCMPH, temp, typeOfFluid))
+  }, [temp, flowCMPH, flowCDPS, pipeType, typeOfFluid])
 
   useEffect(() => {
+    if (lastCalc === FLOW_INPUT) return
     if (power === '' || power === 0 || deltaTemp === '' || deltaTemp === 0) {
       setResults(null)
       setFlowCMPH('')
       setFlowCDPS('')
       return
     }
-    const flow = roundToDigits(getFlowBasedOnPower(deltaTemp, power, typeOfFluid, temp), 3)
+    const flow = Calc.roundToDigits(
+      Calc.getFlowBasedOnPower(deltaTemp, power, typeOfFluid, temp),
+      3
+    )
     setFlowCMPH(flow)
-    setFlowCDPS(cmphToLps(flow))
-  }, [power, deltaTemp])
+    setFlowCDPS(Calc.cmphToLps(flow))
+  }, [power, deltaTemp, typeOfFluid])
 
   const handleCMPHChange = (e) => {
-    setFlowCDPS(cmphToLps(e))
+    setLastCalc(FLOW_INPUT)
+    setFlowCDPS(Calc.cmphToLps(e))
     setFlowCMPH(e)
   }
 
   const handleCDPSChange = (e) => {
-    setFlowCMPH(lpsToCmph(e))
+    setLastCalc(FLOW_INPUT)
+    setFlowCMPH(Calc.lpsToCmph(e))
     setFlowCDPS(e)
   }
 
   const handlePowerChange = (e) => {
-    // TODO some validation
+    setLastCalc(POWER_INPUT)
     setPower(e)
   }
 
   const handleDeltaTempChange = (e) => {
-    // TODO some validation
-    setFlowCMPH(roundToDigits(getFlowBasedOnPower(e, power, typeOfFluid, temp), 3))
-    setDeltaTemp(e)
+    Calc.validateTemp(e, 50, 50)
+    setLastCalc(POWER_INPUT)
+    setFlowCMPH(Calc.roundToDigits(Calc.getFlowBasedOnPower(e, power, typeOfFluid, temp), 3))
+    setDeltaTemp(Calc.validateTemp(e, 50, 50))
   }
 
   const handleTempChange = (e) => {
-    const validatedTemp = validateTemp(e)
-    setTemp(validatedTemp)
+    setTemp(Calc.validateTemp(e))
   }
-
   return (
     <Grid container spacing={GRID_SPACING}>
       <Grid item xs={12}>
@@ -96,6 +98,7 @@ const HeatingCalc = () => {
                   label="Temp. czynnika °C"
                   value={temp}
                   onChange={handleTempChange}
+                  helperText={temp ? '' : 'Wpisz temperature'}
                 />
               </Grid>
             </Grid>
@@ -126,6 +129,7 @@ const HeatingCalc = () => {
                 value={deltaTemp}
                 onChange={handleDeltaTempChange}
                 label="Różnica temp. °C"
+                helperText={lastCalc === POWER_INPUT && !deltaTemp ? 'Wpisz różnicę temp.' : ''}
               />
             </Grid>
           </Grid>
@@ -149,12 +153,34 @@ const HeatingCalc = () => {
           </Grid>
         </Paper>
       </Grid>
-
+      {results === false && (
+        <Grid item xs={12}>
+          <Paper elevation={2} sx={paperSX}>
+            Zbyt duży przepływ dla danego typoszeregu rur
+          </Paper>
+        </Grid>
+      )}
       {results && (
         <Grid item xs={12}>
           <Paper elevation={2} sx={paperSX}>
             <Typography sx={{ ...typograhySX, mb: 0 }}>Wyniki</Typography>
-            {/* TODO add information where these results are from */}
+
+            {lastCalc === FLOW_INPUT && (
+              <Typography variant="body2">
+                Dla przepływu
+                <strong>{` ${flowCMPH} m3/h ~ ${flowCDPS} dm3/s `}</strong>
+                dobrano:
+              </Typography>
+            )}
+            {lastCalc === POWER_INPUT && (
+              <Typography variant="body2">
+                Dla mocy
+                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+                <strong>{` ${power} kW  `}</strong>i ΔT
+                <strong>{` ${deltaTemp}°C `}</strong>
+                dobrano:
+              </Typography>
+            )}
             <ResultList results={results} />
           </Paper>
         </Grid>

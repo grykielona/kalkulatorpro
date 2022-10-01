@@ -1,5 +1,5 @@
 import {
-  calcArrayOfPressDropLiquid,
+  getArrayOfPressDropLiquid,
   calcLambda,
   calcPressureDrop,
   calcReynolds,
@@ -78,7 +78,7 @@ describe('physical calcs', () => {
     it('should return proper pressure drop array given low flow', () => {
       const acceptablePressureDrop = 160
       flow = 0.1
-      const results = calcArrayOfPressDropLiquid(
+      const results = getArrayOfPressDropLiquid(
         0.15,
         flow,
         temp,
@@ -92,7 +92,7 @@ describe('physical calcs', () => {
     it('should return proper pressure drop array given normal flow', () => {
       const acceptablePressureDrop = 160
       flow = 1
-      const results = calcArrayOfPressDropLiquid(
+      const results = getArrayOfPressDropLiquid(
         0.15,
         flow,
         temp,
@@ -111,7 +111,7 @@ describe('physical calcs', () => {
     it('should return false given ultra high flow', () => {
       const acceptablePressureDrop = 160
       flow = 1000000
-      const results = calcArrayOfPressDropLiquid(
+      const results = getArrayOfPressDropLiquid(
         0.15,
         flow,
         temp,

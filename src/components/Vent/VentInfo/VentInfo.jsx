@@ -1,8 +1,8 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import CustomModal from '../CustomModal/CustomModal'
+import CustomModal from '../../CustomModal/CustomModal'
 
-const HeatingInfo = () => (
+const VentInfo = () => (
   <Box sx={{ my: { xs: 2, md: 4 }, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
     <CustomModal label="TYPOSZEREGI" title="Typoszeregi rur">
       <div>AAAAAAA AAAAAAAA</div>
@@ -20,4 +20,4 @@ const HeatingInfo = () => (
   </Box>
 )
 
-export default HeatingInfo
+export default VentInfo

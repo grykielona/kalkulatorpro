@@ -219,7 +219,7 @@ export const calcGasPressureDrop = (flow, diameter) => {
 // Making selection of pipe based on pressure drop.
 // It returns proper pipe and then 2 smaller and 2 bigger pipes
 // to see how it looks like. Returns Array of Objects.
-export const calcArrayOfPressDropLiquid = (
+export const getArrayOfPressDropLiquid = (
   pipeType,
   flow,
   temp,
@@ -263,7 +263,7 @@ export const calcArrayOfPressDropLiquid = (
 // Making selection of duct based on speed.
 // It returns proper duct and then 2 smaller and 2 bigger pipes
 // to see how it looks like. Returns Array of Objects.
-export const calcArrayOfPressDropAir = (
+export const getArrayOfPressDropAir = (
   flow,
   pipeRoughness = 0.15,
   pipes = Pipes.spiroPipes,
@@ -299,7 +299,7 @@ export const calcArrayOfPressDropAir = (
   return results
 }
 
-export const calcArrayOfPressDropGas = (flow, maxSpeed = 6, pipes = Pipes.steelPipesDiameters) => {
+export const getArrayOfPressDropGas = (flow, maxSpeed = 6, pipes = Pipes.steelPipesDiameters) => {
   const results = []
   const arrayOfPipes = Object.values(pipes)
   const arrayOfPipesLabels = Object.keys(pipes)

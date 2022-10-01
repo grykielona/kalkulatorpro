@@ -1,9 +1,9 @@
 import { Container, Grid, useMediaQuery } from '@mui/material'
 import React, { useState } from 'react'
-import AuthValveCalc from '../components/AuthValveCalc/AuthValveCalc'
-import HeatingCalc from '../components/HeatingCalc/HeatingCalc'
-import HeatingInfo from '../components/HeatingInfo/HeatingInfo'
-import HeatStreamCalc from '../components/HeatStreamCalc/HeatStreamCalc'
+import AuthValveCalc from '../components/Heating/AuthValveCalc/AuthValveCalc'
+import HeatingCalc from '../components/Heating/HeatingCalc/HeatingCalc'
+import HeatingInfo from '../components/Heating/HeatingInfo/HeatingInfo'
+import HeatStreamCalc from '../components/Heating/HeatStreamCalc/HeatStreamCalc'
 import CustomTabsNav from '../components/Tabs/CustomTabsNav'
 import TabPanel from '../components/Tabs/TabPanel'
 
@@ -15,10 +15,9 @@ const tabs = [
 
 const HeatingPage = () => {
   const [tabIdx, setTabIdx] = useState(0)
-
-  // @ts-ignore
   const matches = useMediaQuery((theme) => theme.breakpoints.up('md'))
   const tabNavOrientation = matches ? 'vertical' : 'horizontal'
+
   return (
     <Container sx={{ mt: 2, px: 1 }} maxWidth="md">
       <Grid container spacing={1}>
