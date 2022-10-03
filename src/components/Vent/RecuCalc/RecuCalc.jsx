@@ -9,7 +9,7 @@ const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt:
 const RecuCalc = () => {
   const a = 'lorem15'
   return (
-    // TODO Make calc
+    // TODO Make calc for heat recovery
     <Grid container spacing={GRID_SPACING}>
       <Grid item xs={12} md={6}>
         <Paper elevation={2} sx={paperSX}>

@@ -309,7 +309,6 @@ export const getArrayOfPressDropGas = (flow, maxSpeed = 6, pipes = Pipes.steelPi
   )
   const arrayOfPressureDrops = arrayOfPipes.map((diameter) => calcGasPressureDrop(flow, diameter))
   const indexOfProperPipe = arrayOfSpeeds.findIndex((speed) => speed < maxSpeed)
-
   if (indexOfProperPipe === -1) {
     return false
   }
@@ -341,10 +340,10 @@ export const getProperPipeDepOnMaxSpeed = (maxSpeed, flow, pipeType) => {
 }
 
 // Return power in [kW] flow in [m3/h]
-export const calcGasPower = (flowCMPH) => roundToDigits(flowCMPH / 0.115, 2)
+export const calcGasPower = (flowCMPH) => roundToDigits(flowCMPH / 0.115, 1)
 
 // Return flow in [m3/h] flow in [kW]
-export const calcGasFlow = (powerInKW) => roundToDigits(powerInKW * 0.115, 2)
+export const calcGasFlow = (powerInKW) => roundToDigits(powerInKW * 0.115, 1)
 
 export const sumOfQn = (basin, sink, rinser, tub, shower, wash, dish, urinal) =>
   roundToDigits(

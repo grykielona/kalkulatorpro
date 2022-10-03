@@ -5,6 +5,7 @@ import * as Calc from '../../../helpers/physicalCalculations'
 import CustomSelectField from '../../Inputs/CustomSelectField'
 import CustomTextField from '../../Inputs/CustomTextField'
 import ResultList from '../../Result/ResultList'
+import TooMuchFlow from '../../Result/TooMuchFlow'
 
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
@@ -116,7 +117,6 @@ const HeatingCalc = () => {
           </Grid>
         </Paper>
       </Grid>
-
       <Grid item xs={12} md={6}>
         <Paper elevation={2} sx={paperSX}>
           <Typography sx={typograhySX}>Dobór na podstawie mocy</Typography>
@@ -135,7 +135,6 @@ const HeatingCalc = () => {
           </Grid>
         </Paper>
       </Grid>
-
       <Grid item xs={12} md={6}>
         <Paper elevation={2} sx={paperSX}>
           <Typography sx={typograhySX}>Dobór na podstawie przepływu</Typography>
@@ -153,13 +152,7 @@ const HeatingCalc = () => {
           </Grid>
         </Paper>
       </Grid>
-      {results === false && (
-        <Grid item xs={12}>
-          <Paper elevation={2} sx={paperSX}>
-            Zbyt duży przepływ dla danego typoszeregu rur
-          </Paper>
-        </Grid>
-      )}
+      <TooMuchFlow results={results} />
       {results && (
         <Grid item xs={12}>
           <Paper elevation={2} sx={paperSX}>

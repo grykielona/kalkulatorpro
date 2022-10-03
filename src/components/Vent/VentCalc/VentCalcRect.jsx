@@ -1,5 +1,5 @@
-import { Grid, Paper, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
+import { Grid, Paper, Typography } from '@mui/material'
 import * as Calc from '../../../helpers/physicalCalculations'
 import CustomTextField from '../../Inputs/CustomTextField'
 
@@ -95,7 +95,8 @@ const VentCalcRect = () => {
               <strong>
                 {sideA}x{sideB}
               </strong>{' '}
-              mm {`(${Calc.getRectAreaInSqM(sideA, sideB)}`}m<sup>2</sup>)
+              mm
+              {`(${Calc.getRectAreaInSqM(sideA, sideB)}`}m<sup>2</sup>)
             </Typography>
             <Typography variant="body1">
               prędkość wynosi

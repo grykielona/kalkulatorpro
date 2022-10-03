@@ -1,4 +1,4 @@
-import { Link as MuiLink, MenuItem, Box, Divider } from '@mui/material'
+import { Box, Divider, MenuItem } from '@mui/material'
 import { Link } from 'gatsby'
 import React from 'react'
 import DarkModeSwitch from '../DarkModeSwitch'
@@ -11,16 +11,17 @@ export const NAV_ITEMS = [
 ]
 
 const NavbarMenu = () => (
-  <Box sx={{ display: 'flex' }}>
+  <Box sx={{ display: 'flex', height: '64px' }}>
     {NAV_ITEMS.map(({ name, path }) => (
       <MenuItem
         key={path}
+        // TODO final decision regarding active style
         // activeStyle={{ borderBottom: '2px solid hsla(255, 100%, 100%, 0.5)' }}
         activeStyle={{ color: '#7ebcff' }}
         // activeStyle={{ textDecoration: 'overline' }}
         component={Link}
         to={path}
-        sx={{ fontSize: '1.1rem', py: 2 }}
+        sx={{ fontSize: '1.1rem', py: 1 }}
       >
         {name}
       </MenuItem>
