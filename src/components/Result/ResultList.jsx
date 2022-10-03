@@ -4,7 +4,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import React from 'react'
 import ResultDivider from './ResultDivider'
 
-const ResultList = ({ results }) => (
+const ResultList = ({ results, isSpiro = false }) => (
   <List>
     {results &&
       results.map(({ diameter, pressureDrop, speed, isAboveAcceptable }) => {
@@ -18,7 +18,10 @@ const ResultList = ({ results }) => (
                 <CheckCircleOutlineIcon fontSize="1.5rem" />
               )}
             </ListItemAvatar>
-            <Typography color={color}>{diameter}</Typography>
+            <Typography color={color}>
+              {isSpiro ? 'φ' : ''}
+              {diameter}
+            </Typography>
             <ResultDivider color={color} />
             <Typography color={color}>{`${pressureDrop} Pa/m`}</Typography>
             <ResultDivider color={color} />

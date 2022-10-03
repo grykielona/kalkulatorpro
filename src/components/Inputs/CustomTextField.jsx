@@ -11,6 +11,9 @@ const CustomTextField = ({ label, width = '100%', value, onChange, helperText = 
     <TextField
       sx={{
         width,
+        '&.MuiTextField-root': {
+          mb: { xs: '0.2rem', md: '0.5rem' },
+        },
         '& label.Mui-focused': {
           color: focusedColors(mode),
         },

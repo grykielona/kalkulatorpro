@@ -163,16 +163,17 @@ export const calcLambda = (pipeRoughness, reynolds, diameter) => {
 }
 
 // return flowSpeed [m/s]  args ([m3/h], [mm])
-export const calcFlowSpeed = (flowCMPH, diameterInMM) => {
+export const calcRoundFlowSpeed = (flowCMPH, diameterInMM) => {
   const pipeArea = (Math.PI * (diameterInMM / 1000) * (diameterInMM / 1000)) / 4
   return flowCMPH / 3600 / pipeArea
 }
 
-// return flowSpeed [m/s]  args ([m3/h], [mm])
-export const calcFlowSpeedRect = (flowCMPH, dimAInMM, dimHInMM) => {
-  const Area = (dimAInMM / 1000) * (dimHInMM / 1000)
-  return roundToDigits(flowCMPH / 3600 / Area, 2)
-}
+// returns speed in m/s (m3/h, mm, mm)
+export const calcFlowSpeedRect = (flowCMPH, sideA, sideB) =>
+  flowCMPH / 3600 / ((sideA / 1000) * (sideB / 1000))
+
+// return area in [m2]  args ([mm], [mm])
+export const getRectAreaInSqM = (sideA, sideB) => roundToDigits((sideA / 1000) * (sideB / 1000), 3)
 
 const getFluidKinVisc = (specificHeat, temp) => {
   if (specificHeat === 4.2) {
@@ -193,7 +194,7 @@ export const calcPressureDrop = (
   specificHeat,
   rounded = false
 ) => {
-  const flowSpeed = calcFlowSpeed(flow, diameter)
+  const flowSpeed = calcRoundFlowSpeed(flow, diameter)
   const fluidDensity = getFluidDensity(specificHeat, temp)
   const fluidKinVisc = getFluidKinVisc(specificHeat, temp)
   const reynolds = calcReynolds(flowSpeed, diameter, fluidKinVisc)
@@ -234,7 +235,7 @@ export const getArrayOfPressDropLiquid = (
     calcPressureDrop(pipeType, diameter, flow, temp, specificHeat, rounded)
   )
   const arrayOfSpeed = internalDiametersOfPipes.map((diameter) =>
-    roundToDigits(calcFlowSpeed(flow, diameter), 2)
+    roundToDigits(calcRoundFlowSpeed(flow, diameter), 2)
   )
 
   const indexOfAcceptPressDrop = arrayOfPressureDrops.findIndex(
@@ -273,7 +274,7 @@ export const getArrayOfPressDropAir = (
   const arrayOfDucts = Object.values(pipes)
   const arrayOfDuctsLabels = Object.keys(pipes)
   const arrayOfSpeeds = arrayOfDucts.map((diameter) =>
-    roundToDigits(calcFlowSpeed(flow, diameter), 2)
+    roundToDigits(calcRoundFlowSpeed(flow, diameter), 2)
   )
   const arrayOfPressureDrops = arrayOfDucts.map((diameter) =>
     calcPressureDrop(pipeRoughness, diameter, flow, 20, 1.005, true)
@@ -304,7 +305,7 @@ export const getArrayOfPressDropGas = (flow, maxSpeed = 6, pipes = Pipes.steelPi
   const arrayOfPipes = Object.values(pipes)
   const arrayOfPipesLabels = Object.keys(pipes)
   const arrayOfSpeeds = arrayOfPipes.map((diameter) =>
-    roundToDigits(calcFlowSpeed(flow, diameter), 2)
+    roundToDigits(calcRoundFlowSpeed(flow, diameter), 2)
   )
   const arrayOfPressureDrops = arrayOfPipes.map((diameter) => calcGasPressureDrop(flow, diameter))
   const indexOfProperPipe = arrayOfSpeeds.findIndex((speed) => speed < maxSpeed)
@@ -333,7 +334,7 @@ export const getProperPipeDepOnMaxSpeed = (maxSpeed, flow, pipeType) => {
   const arrayOfPipes = Pipes.arrayOfInternalDiameters(pipeType)
   const arrayOfPipesLabels = Pipes.arrayOfLabelDiameters(pipeType)
   const arrayOfSpeeds = arrayOfPipes.map((diameter) =>
-    roundToDigits(calcFlowSpeed(flow, diameter), 2)
+    roundToDigits(calcRoundFlowSpeed(flow, diameter), 2)
   )
   const indexOfProperPipe = arrayOfSpeeds.findIndex((speed) => speed < maxSpeed)
   return [arrayOfPipesLabels[indexOfProperPipe], arrayOfSpeeds[indexOfProperPipe]]

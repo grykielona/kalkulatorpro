@@ -15,10 +15,12 @@ const NavbarMenu = () => (
     {NAV_ITEMS.map(({ name, path }) => (
       <MenuItem
         key={path}
-        activeStyle={{ borderBottom: '3px solid hsla(255, 100%, 100%, 0.5)' }}
+        // activeStyle={{ borderBottom: '2px solid hsla(255, 100%, 100%, 0.5)' }}
+        activeStyle={{ color: '#7ebcff' }}
+        // activeStyle={{ textDecoration: 'overline' }}
         component={Link}
         to={path}
-        sx={{ fontSize: '1.1rem' }}
+        sx={{ fontSize: '1.1rem', py: 2 }}
       >
         {name}
       </MenuItem>
