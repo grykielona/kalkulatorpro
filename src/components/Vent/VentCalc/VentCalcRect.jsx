@@ -50,7 +50,7 @@ const VentCalcRect = () => {
             <Grid item xs={6}>
               <CustomTextField
                 helperText={flowRectCMPH && !sideA ? 'Podaj wymiar' : ''}
-                label="bok A"
+                label="Bok A"
                 value={sideA}
                 onChange={handleSideAChange}
               />
@@ -58,7 +58,7 @@ const VentCalcRect = () => {
             <Grid item xs={6}>
               <CustomTextField
                 helperText={flowRectCMPH && !sideB ? 'Podaj wymiar' : ''}
-                label="bok B"
+                label="Bok B"
                 value={sideB}
                 onChange={handleSideBChange}
               />

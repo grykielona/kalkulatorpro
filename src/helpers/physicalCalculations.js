@@ -425,5 +425,8 @@ export const calcQbasedOnQn = (sumQn, typeOfBuilding) => {
   return 0
 }
 
-export const calcTempAfterRecovery = (tempExt, tempExahust, eff) =>
-  tempExt + (efficiency / 100) * (tempExahust - tempExt)
+export const calcTempAfterRecovery = (tempExt, tempExahust, efficiency) =>
+  Number(tempExt) + (efficiency / 100) * (tempExahust - tempExt)
+
+export const calcEfficiencyOfRecovery = (tempExt, tempExahust, tempSupply) =>
+  ((tempSupply - tempExt) / (tempExahust - tempExt)) * 100
