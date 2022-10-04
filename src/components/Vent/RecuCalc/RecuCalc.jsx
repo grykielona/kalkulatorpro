@@ -1,5 +1,6 @@
 import { Grid, Paper, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { calcTempAfterRecovery, validateEfficiency } from '../../../helpers/physicalCalculations'
 import CustomTextField from '../../Inputs/CustomTextField'
 
 const GRID_SPACING = 1
@@ -7,19 +8,63 @@ const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
 
 const RecuCalc = () => {
-  const a = 'lorem15'
+  const [tempExternal, setTempExternal] = useState('')
+  const [tempExhaust, setTempExhaust] = useState('')
+  const [tempSupply, setTempSupply] = useState('')
+  const [efficiency, setEfficiency] = useState('')
+
+  useEffect(() => {
+    if (tempExternal === '' || tempExhaust === '' || efficiency === '') {
+      setTempSupply('')
+      return
+    }
+    setTempSupply(calcTempAfterRecovery(tempExternal, tempExhaust, efficiency))
+  }, [tempExternal, tempExhaust, efficiency])
+
+  const handleTempExternalChange = (e) => {
+    setTempExternal(e)
+  }
+  const handleTempExhaustChange = (e) => {
+    setTempExhaust(e)
+  }
+  const handleEfficiencyChange = (e) => {
+    setEfficiency(validateEfficiency(e))
+  }
+
   return (
-    // TODO Make calc for heat recovery
     <Grid container spacing={GRID_SPACING}>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12}>
         <Paper elevation={2} sx={paperSX}>
           <Typography sx={typograhySX}>Temperatura za wymiennikiem</Typography>
           <Grid container spacing={GRID_SPACING}>
             <Grid xs={6} item>
-              <CustomTextField value={2} onChange={() => {}} label="Przepływ m3/h" />
+              <CustomTextField
+                value={tempExternal}
+                onChange={handleTempExternalChange}
+                label="Temp. zew. °C"
+              />
             </Grid>
             <Grid xs={6} item>
-              <CustomTextField value={2} onChange={() => {}} label="Przepływ dm3/s" />
+              <CustomTextField
+                value={tempExhaust}
+                onChange={handleTempExhaustChange}
+                label="Temp. wywiewu °C"
+              />
+            </Grid>
+            <Grid xs={6} item>
+              <CustomTextField
+                value={efficiency}
+                onChange={handleEfficiencyChange}
+                label="sprawność %"
+              />
+            </Grid>
+            <Grid xs={6} item>
+              <CustomTextField
+                disabled
+                value={tempSupply}
+                onChange={() => {}}
+                label="Temp. za wymiennikiem °C"
+              />
             </Grid>
           </Grid>
         </Paper>

@@ -14,6 +14,17 @@ export const validateTemp = (temp) => {
   return validTemp
 }
 
+export const validateEfficiency = (efficiency) => {
+  let validated = efficiency
+  if (efficiency > 100) {
+    validated = 100
+  }
+  if (efficiency < 0) {
+    validated = 0
+  }
+  return validated
+}
+
 // Return flow in m3/h (args flow in [dm3/s])
 export const lpsToCmph = (flow) => roundToDigits(flow * 3.6, 2)
 
@@ -413,3 +424,6 @@ export const calcQbasedOnQn = (sumQn, typeOfBuilding) => {
   }
   return 0
 }
+
+export const calcTempAfterRecovery = (tempExt, tempExahust, eff) =>
+  tempExt + (efficiency / 100) * (tempExahust - tempExt)
