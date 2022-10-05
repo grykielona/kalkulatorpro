@@ -15,18 +15,27 @@ const RecuEfficiencyCalc = () => {
   const [tempExhaustError, setTempExhaustError] = useState('')
   const [tempSupplyError, setTempSupplyError] = useState('')
 
-  // TODO handle validation
   useEffect(() => {
     if (tempExhaust !== '' && Number(tempExternal) >= Number(tempExhaust)) {
       setEfficiency('')
       setTempExhaustError('temp wyw. musi być większa od zewnętrznej')
+      return
     }
+    setTempExhaustError('')
 
     if (tempExhaust !== '' && Number(tempSupply) > Number(tempExhaust)) {
       setEfficiency('')
       setTempSupplyError('temp nawiewu nie moze być większa od wywiewu')
+      return
     }
 
+    if (tempSupply !== '' && Number(tempSupply) < Number(tempExternal)) {
+      setEfficiency('')
+      setTempSupplyError('temp nawiewu nie moze być mniejsza od zewnętrznej')
+      return
+    }
+
+    setTempSupplyError('')
     if (tempExternal === '' || tempExhaust === '' || tempSupply === '') {
       setEfficiency('')
       return
