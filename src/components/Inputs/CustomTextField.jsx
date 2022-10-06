@@ -4,7 +4,16 @@ import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 
 const focusedColors = (mode) => (mode === 'light' ? 'primary.main' : 'grey.300')
 
-const CustomTextField = ({ label, width = '100%', value, onChange, helperText = '', disabled }) => {
+const CustomTextField = ({
+  label,
+  width = '100%',
+  value,
+  onChange,
+  helperText = '',
+  disabled,
+  fullEvent = false,
+  name = '',
+}) => {
   const { mode } = useDarkModeContext()
 
   return (
@@ -35,8 +44,8 @@ const CustomTextField = ({ label, width = '100%', value, onChange, helperText = 
         },
       }}
       // TODO: filter e (exponent)
-      onChange={(e) => onChange(e.target.value)}
-      name={label}
+      onChange={(e) => onChange(fullEvent ? e : e.target.value)}
+      name={name || label}
       value={value}
       disabled={disabled}
       size="small"

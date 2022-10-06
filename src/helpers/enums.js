@@ -15,11 +15,11 @@ export const pipeRoughness = [
   { itemLabel: 'Rury żeliwne nowe k=0,25 mm', itemValue: 0.25 },
 ]
 
-export const typeOfBuilding = {
-  'Budynki mieszkalne': '1',
-  'Budynki biurowe i administracyjne': '2',
-  'Hotele ': '3',
-  'Domy towarowe': '4',
-  'Szpitale ': '5',
-  'Szkoły ': '6',
-}
+export const typeOfBuilding = [
+  { itemLabel: 'Budynki mieszkalne', itemValue: 1 },
+  { itemLabel: 'Budynki biurowe i administracyjne', itemValue: 2 },
+  { itemLabel: 'Hotele ', itemValue: 3 },
+  { itemLabel: 'Domy towarowe', itemValue: 4 },
+  { itemLabel: 'Szpitale ', itemValue: 5 },
+  { itemLabel: 'Szkoły ', itemValue: 6 },
+]
