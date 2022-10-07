@@ -65,7 +65,7 @@ const WaterCalc = () => {
         </Paper>
       </Grid>
 
-      {JSON.stringify(itemsRows)}
+      {/* {JSON.stringify(itemsRows)} */}
       {itemsRows.map((item) => (
         <WaterItems
           speedCondition={speedCondition}

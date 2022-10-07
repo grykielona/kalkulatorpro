@@ -8,6 +8,7 @@ export const NAV_ITEMS = [
   { name: 'Gaz', path: '/gaz' },
   { name: 'Woda', path: '/woda' },
   { name: 'Wentylacja', path: '/wentylacja' },
+  { name: 'Wiedza', path: '/wiedza' },
 ]
 
 const NavbarMenu = () => (
@@ -27,7 +28,7 @@ const NavbarMenu = () => (
       </MenuItem>
     ))}
     <Divider
-      sx={{ mx: 3, borderColor: 'hsla(255, 100%, 100%, 0.2)' }}
+      sx={{ mx: { sm: 2, lg: 3 }, borderColor: 'hsla(255, 100%, 100%, 0.2)' }}
       orientation="vertical"
       flexItem
     />
