@@ -12,7 +12,7 @@ const NavbarLogo = () => (
       }}
     >
       <Box component="img" sx={{ height: '35px', mr: 1 }} src={calc} alt="calculator logo" />
-      <Typography variant="span " sx={{ fontSize: '1.5rem' }}>
+      <Typography variant="span" sx={{ fontSize: '1.5rem' }}>
         Kalkulator
         <Typography variant="span" sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
           Pro

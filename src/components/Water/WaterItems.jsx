@@ -89,6 +89,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="basin"
               label="Umywalka"
               value={items.basin}
@@ -98,6 +99,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="sink"
               label="Zlewozm."
               value={items.sink}
@@ -107,6 +109,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="rinser"
               label="Płuczka"
               value={items.rinser}
@@ -116,6 +119,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="tub"
               label="Wanna"
               value={items.tub}
@@ -125,6 +129,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="shower"
               label="Natrysk"
               value={items.shower}
@@ -134,6 +139,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="wash"
               label="Pralka"
               value={items.wash}
@@ -143,6 +149,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="dish"
               label="Zmywarka"
               value={items.dish}
@@ -152,6 +159,7 @@ const WaterItems = ({
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent
+              selectOnFocus
               name="urinal"
               label="Pisuar"
               value={items.urinal}

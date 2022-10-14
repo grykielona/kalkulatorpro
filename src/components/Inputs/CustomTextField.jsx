@@ -13,6 +13,7 @@ const CustomTextField = ({
   disabled,
   fullEvent = false,
   name = '',
+  selectOnFocus = false,
 }) => {
   const { mode } = useDarkModeContext()
 
@@ -42,6 +43,9 @@ const CustomTextField = ({
           '-webkit-appearance': 'none',
           margin: 0,
         },
+      }}
+      onFocus={(e) => {
+        if (selectOnFocus) e.target.select()
       }}
       // TODO: filter e (exponent)
       onChange={(e) => onChange(fullEvent ? e : e.target.value)}

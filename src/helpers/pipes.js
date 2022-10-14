@@ -77,6 +77,24 @@ export const spiroPipes = {
   1250: 1250,
 }
 
+export const spiro = {
+  fi80: '',
+  fi100: '',
+  fi125: '',
+  fi160: '',
+  fi200: '',
+  fi250: '',
+  fi315: '',
+  fi355: '',
+  fi400: '',
+  fi450: '',
+  fi500: '',
+  fi630: '',
+  fi710: '',
+  fi800: '',
+  fi1000: '',
+  fi1250: '',
+}
 export const arrayOfInternalDiameters = (pipeType) => {
   let type
   if (pipeType === 0.007001) {
