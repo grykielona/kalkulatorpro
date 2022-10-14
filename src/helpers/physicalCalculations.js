@@ -347,6 +347,9 @@ export const getProperPipeDepOnMaxSpeed = (maxSpeed, flow, pipeType) => {
     roundToDigits(calcRoundFlowSpeed(flow, diameter), 2)
   )
   const indexOfProperPipe = arrayOfSpeeds.findIndex((speed) => speed < maxSpeed)
+  if (indexOfProperPipe < 0) {
+    return indexOfProperPipe
+  }
   return [arrayOfPipesLabels[indexOfProperPipe], arrayOfSpeeds[indexOfProperPipe]]
 }
 
@@ -356,7 +359,7 @@ export const calcGasPower = (flowCMPH) => roundToDigits(flowCMPH / 0.115, 1)
 // Return flow in [m3/h] flow in [kW]
 export const calcGasFlow = (powerInKW) => roundToDigits(powerInKW * 0.115, 1)
 
-export const sumOfQn = (basin, sink, rinser, tub, shower, wash, dish, urinal) =>
+export const getSumOfQns = (basin, sink, rinser, tub, shower, wash, dish, urinal) =>
   roundToDigits(
     basin * 0.07 +
       sink * 0.07 +
