@@ -16,8 +16,13 @@ const Bibliography = ({ img, alt, author, publisher, title }) => (
         primary={title}
         secondary={
           <>
-            <Typography variant="body2">{author}</Typography>
-            <Typography variant="body2">{publisher}</Typography>
+            <Typography component="span" variant="body2">
+              {author}
+            </Typography>
+            <br />
+            <Typography component="span" variant="body2">
+              {publisher}
+            </Typography>
           </>
         }
       />

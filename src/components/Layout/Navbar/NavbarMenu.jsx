@@ -16,10 +16,7 @@ const NavbarMenu = () => (
     {NAV_ITEMS.map(({ name, path }) => (
       <MenuItem
         key={path}
-        // TODO final decision regarding active style
-        // activeStyle={{ borderBottom: '2px solid hsla(255, 100%, 100%, 0.5)' }}
         activeStyle={{ color: '#7ebcff' }}
-        // activeStyle={{ textDecoration: 'overline' }}
         component={Link}
         to={path}
         sx={{ fontSize: '1.1rem', py: 1 }}

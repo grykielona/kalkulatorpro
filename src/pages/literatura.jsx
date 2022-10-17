@@ -59,7 +59,7 @@ const bibliography = [
   },
 ]
 
-const literatura = () => (
+const Literatura = () => (
   <Container sx={{ mt: 2, px: 1 }} maxWidth="md">
     <List sx={{}}>
       {bibliography.map(({ title, img, author, publisher }) => (
@@ -76,4 +76,4 @@ const literatura = () => (
   </Container>
 )
 
-export default literatura
+export default Literatura

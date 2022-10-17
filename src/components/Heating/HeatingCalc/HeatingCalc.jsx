@@ -21,7 +21,7 @@ const HeatingCalc = () => {
   const [flowCMPH, setFlowCMPH] = useState('')
   const [flowCDPS, setFlowCDPS] = useState('')
   const [pipeType, setPipeType] = useState(0.15)
-  const [typeOfFluid, setTypeOfFluids] = useState(4.2)
+  const [typeOfFluid, setTypeOfFluid] = useState(4.2)
   const [results, setResults] = useState(null)
   const [lastCalc, setLastCalc] = useState('')
 
@@ -90,7 +90,7 @@ const HeatingCalc = () => {
                   labelId="type-of-fluid"
                   menuItem={mediumTypes}
                   onChange={(e) => {
-                    setTypeOfFluids(e)
+                    setTypeOfFluid(e)
                   }}
                 />
               </Grid>

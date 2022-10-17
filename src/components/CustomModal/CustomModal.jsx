@@ -28,7 +28,13 @@ const CustomModal = ({ label, title, children, maxWidth = 'sm', link = false }) 
           {label}
         </Button>
       ) : (
-        <Link onClick={handleClickOpen} variant="body2" component="button" color="inherit">
+        <Link
+          underline="hover"
+          onClick={handleClickOpen}
+          variant="body2"
+          component="button"
+          color="inherit"
+        >
           {label}
         </Link>
       )}
