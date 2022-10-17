@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import AuthValveCalc from '../components/Heating/AuthValveCalc/AuthValveCalc'
 import HeatingCalc from '../components/Heating/HeatingCalc/HeatingCalc'
 import HeatingInfo from '../components/Heating/HeatingInfo/HeatingInfo'
+import { SEO } from '../components/Layout/seo'
 import CustomTabsNav from '../components/Tabs/CustomTabsNav'
 import TabPanel from '../components/Tabs/TabPanel'
 
@@ -41,3 +42,5 @@ const HeatingPage = () => {
 }
 
 export default HeatingPage
+
+export const Head = () => <SEO title="ogrzewanie" />

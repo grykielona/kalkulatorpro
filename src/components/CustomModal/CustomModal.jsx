@@ -31,7 +31,7 @@ const CustomModal = ({ label, title, children, maxWidth = 'sm', link = false }) 
         <Link
           underline="hover"
           onClick={handleClickOpen}
-          variant="body2"
+          variant="body1"
           component="button"
           color="inherit"
         >

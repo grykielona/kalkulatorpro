@@ -1,5 +1,6 @@
 import { Container, Grid, useMediaQuery } from '@mui/material'
 import React, { useState } from 'react'
+import { SEO } from '../components/Layout/seo'
 import CustomTabsNav from '../components/Tabs/CustomTabsNav'
 import TabPanel from '../components/Tabs/TabPanel'
 import RecuCalc from '../components/Vent/RecuCalc/RecuCalc'
@@ -41,3 +42,5 @@ const VentPage = () => {
 }
 
 export default VentPage
+
+export const Head = () => <SEO title="wentylacja" />

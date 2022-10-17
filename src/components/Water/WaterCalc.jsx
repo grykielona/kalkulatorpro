@@ -50,7 +50,7 @@ const WaterCalc = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={5}>
+            <Grid item xs={4}>
               <CustomSelectField
                 defaultValue={0.007002}
                 label="Rodzaj rury"
@@ -61,7 +61,7 @@ const WaterCalc = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={3}>
               <CustomTextField
                 label="Kryt. prędkości"
                 value={speedCondition}

@@ -166,55 +166,59 @@ const WaterItems = ({
               onChange={handleItemChange}
             />
           </Grid>
-
           {results && <WaterCalcRsults results={results} sumOfQn={sumOfQn} Qn={Qn} />}
-
-          {results && (
-            <Grid
-              container
-              xs={7}
-              sm={3}
-              mt={{ xs: 0.5 }}
-              direction={{ xs: 'row', md: 'column' }}
-              alignItems="end"
-              justifyContent={{ xs: 'start', sm: 'end' }}
-              spacing={{ xs: 1, md: 0 }}
-              sx={{
-                position: { xs: 'static', md: 'absolute' },
-                right: '1%',
-                top: '4%',
-                zIndex: '111',
-              }}
-            >
-              <Grid item>
-                {!isOnlyRow && (
-                  <Tooltip placement="right-start" title="Usuń wiersz">
+          <Grid
+            container
+            xs={7}
+            sm={3}
+            mt={{ xs: 0.5 }}
+            direction={{ xs: 'row', md: 'column' }}
+            alignItems="end"
+            justifyContent={{ xs: 'start', sm: 'end' }}
+            spacing={{ xs: 1, md: 0 }}
+            sx={{
+              position: { xs: 'static', md: 'absolute' },
+              right: '1%',
+              top: '4%',
+              zIndex: '111',
+            }}
+          >
+            <Grid item>
+              {!isOnlyRow && (
+                <Tooltip placement="right-start" title="Usuń wiersz">
+                  <IconButton
+                    onClick={() => handleRemoveRow(id)}
+                    size="medium"
+                    sx={iconButtonStyles}
+                  >
+                    <DeleteForeverOutlinedIcon />
+                  </IconButton>
+                </Tooltip>
+              )}
+            </Grid>
+            {results && (
+              <>
+                <Grid item>
+                  <Tooltip placement="right-start" title="Zeruj przybory">
+                    <IconButton onClick={handleReset} size="medium" sx={iconButtonStyles}>
+                      <RestartAltIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Grid>
+                <Grid item>
+                  <Tooltip placement="right-start" title="Skopiuj wiersz">
                     <IconButton
-                      onClick={() => handleRemoveRow(id)}
+                      onClick={() => handleAdd(items)}
                       size="medium"
                       sx={iconButtonStyles}
                     >
-                      <DeleteForeverOutlinedIcon />
+                      <CopyAllOutlinedIcon />
                     </IconButton>
                   </Tooltip>
-                )}
-              </Grid>
-              <Grid item>
-                <Tooltip placement="right-start" title="Zeruj przybory">
-                  <IconButton onClick={handleReset} size="medium" sx={iconButtonStyles}>
-                    <RestartAltIcon />
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-              <Grid item>
-                <Tooltip placement="right-start" title="Skopiuj wiersz">
-                  <IconButton onClick={() => handleAdd(items)} size="medium" sx={iconButtonStyles}>
-                    <CopyAllOutlinedIcon />
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-            </Grid>
-          )}
+                </Grid>
+              </>
+            )}
+          </Grid>
         </Grid>
       </Paper>
     </Grid>

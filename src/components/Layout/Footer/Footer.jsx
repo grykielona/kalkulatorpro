@@ -1,8 +1,8 @@
 import { Box, Container, Divider, Grid, Link, List, ListItem, Typography } from '@mui/material'
 import { Link as GLink } from 'gatsby'
 import React from 'react'
-import CustomModal from '../CustomModal/CustomModal'
-import Policy from './Policy'
+import CustomModal from '../../CustomModal/CustomModal'
+import Policy from '../Policy'
 
 const LinksSX = { justifyContent: { xs: 'start', sm: 'end' } }
 
@@ -24,17 +24,12 @@ const Footer = () => (
             oparte na wynikach obliczeń ponosi użytkownik.
           </Typography>
         </Grid>
-        {/* <Divider
-          sx={{ borderColor: 'hsla(255, 100%, 100%, 0.2)' }}
-          orientation="vertical"
-          flexItem
-        /> */}
         <Grid xs={12} sm={4} item>
           <List sx={{ p: 0 }} dense>
             <ListItem sx={LinksSX} disableGutters>
               <Link
                 underline="hover"
-                variant="body2"
+                variant="body1"
                 color="inherit"
                 component={GLink}
                 to="/literatura"
@@ -45,7 +40,7 @@ const Footer = () => (
             <ListItem sx={LinksSX} disableGutters>
               <Link
                 underline="hover"
-                variant="body2"
+                variant="body1"
                 target="_blank"
                 href="https://kbmprojekt.pl/"
                 color="inherit"

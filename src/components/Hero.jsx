@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material'
 import hero2 from '../images/hero2.svg'
 
 const heroSectionSX = {
-  height: { xs: '220px', md: '370px' },
+  height: { xs: '220px', sm: '260px', md: '370px' },
   bgcolor: 'primary.main',
   overflow: 'hidden',
   backgroundImage: `url(${hero2})`,
@@ -17,6 +17,7 @@ const heroSectionSX = {
     xl: 'bottom -20px right 150px',
   },
 }
+
 const Hero = () => (
   <Box sx={heroSectionSX}>
     <Container>

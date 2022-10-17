@@ -3,8 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import React, { useMemo } from 'react'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
-import Seo from '../seo'
-import Footer from './Footer'
+import Footer from './Footer/Footer'
 import MainNavbar from './Navbar/MainNavbar'
 
 const PRIMARY_MAIN = '#002C66'
@@ -38,15 +37,31 @@ const Layout = ({ children }) => {
           // primary: { main: '#c0c0c0' },
           primary: { main: PRIMARY_MAIN },
         },
+        breakpoints: {
+          values: {
+            xs: 0,
+            smm: 450,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+          },
+        },
         typography: {
           h1: {
             fontSize: '2rem',
+            '@media (min-width:600px)': {
+              fontSize: '3rem',
+            },
             '@media (min-width:900px)': {
               fontSize: '4rem',
             },
           },
           h2: {
             fontSize: '1.5rem',
+            '@media (min-width:600px)': {
+              fontSize: '2.25rem',
+            },
             '@media (min-width:900px)': {
               fontSize: '3rem',
             },
@@ -59,16 +74,15 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={customTheme}>
       <CssBaseline />
-      <Seo title="test" />
 
-      <Grid container direction="column" sx={{ minHeight: '100vh', minWidth: '320px' }}>
+      <Grid container direction="column" sx={{ minHeight: '100vh', minWidth: '300px' }}>
         <Grid item>
           <MainNavbar />
         </Grid>
         <Grid item flexGrow={1}>
           {children}
         </Grid>
-        <Grid item sx={{ bgcolor: 'primary.main' }}>
+        <Grid item sx={{ bgcolor: 'primary.main', mt: 2 }}>
           <Footer />
         </Grid>
       </Grid>

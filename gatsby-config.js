@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: 'kalkulatorpro',
-    description: 'kalkulatorpro',
-    author: 'bkiliski',
-    siteUrl: 'http://kalkulatorpro.pl',
+    title: 'KalkulatorPro',
+    description: 'Kalkulator hydrauliczny, kalkulator oporów liniowych',
+    author: 'bkilinski',
+    siteUrl: 'https://kalkulatorpro.pl',
+    image: `/siteImage.png`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -67,19 +68,16 @@ module.exports = {
       },
     },
     // TODO handle manifest for PWA
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'gatsby-starter-default',
-    //     short_name: 'starter',
-    //     start_url: '/',
-    //     background_color: '#663399',
-    //     display: 'minimal-ui',
-    //     icon: 'public/icons/favicon.png', // This path is relative to the root of the site.
-    //   },
-    // },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'KalkulatorPro',
+        short_name: 'KalkulatorPro',
+        start_url: '/',
+        background_color: '#663399',
+        display: 'standalone',
+        icon: 'src/images/calk_logo.png',
+      },
+    },
   ],
 }

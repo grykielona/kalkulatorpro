@@ -1,6 +1,7 @@
 import { Container, List } from '@mui/material'
 import React from 'react'
 import Bibliography from '../components/Bibliography/Bibliography'
+import { SEO } from '../components/Layout/seo'
 import bakowski from '../images/bakowski.jpg'
 import koczyk from '../images/koczyk.jpg'
 import paragraf from '../images/paragraf.jpg'
@@ -77,3 +78,5 @@ const Literatura = () => (
 )
 
 export default Literatura
+
+export const Head = () => <SEO title="literatura" />

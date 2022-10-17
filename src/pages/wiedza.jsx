@@ -2,6 +2,7 @@ import { Container, Paper, Typography } from '@mui/material'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
+import { SEO } from '../components/Layout/seo'
 
 const wiedza = ({ data }) => {
   const a = 5
@@ -62,3 +63,4 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <SEO title="wiedza" />

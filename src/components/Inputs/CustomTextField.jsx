@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material'
-import React from 'react'
+import React, { useRef } from 'react'
 import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
 
 const focusedColors = (mode) => (mode === 'light' ? 'primary.main' : 'grey.300')
@@ -16,6 +16,7 @@ const CustomTextField = ({
   selectOnFocus = false,
 }) => {
   const { mode } = useDarkModeContext()
+  const ref = useRef()
 
   return (
     <TextField
@@ -44,15 +45,19 @@ const CustomTextField = ({
           margin: 0,
         },
       }}
-      onFocus={(e) => {
-        if (selectOnFocus) e.target.select()
+      onClick={() => {
+        if (selectOnFocus) {
+          ref.current.select()
+        }
       }}
       // TODO: filter e (exponent)
       onChange={(e) => onChange(fullEvent ? e : e.target.value)}
       name={name || label}
       value={value}
       disabled={disabled}
+      inputRef={ref}
       size="small"
+      xw
       label={label}
       type="number"
       error={!!helperText}

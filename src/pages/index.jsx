@@ -1,89 +1,80 @@
-import * as React from 'react'
+import { Grid } from '@mui/material'
 import Container from '@mui/material/Container'
-import { Button, Divider, Link } from '@mui/material'
-import { Link as GLink } from 'gatsby'
+import { graphql } from 'gatsby'
+import * as React from 'react'
+import FrontPageCards from '../components/Cards/FrontPageCards'
 import Hero from '../components/Hero'
+import { SEO } from '../components/Layout/seo'
 
-const IndexPage = () => (
-  <>
-    <Hero />
-    <br />
+const IndexPage = ({ data }) => {
+  const cardItems = [
+    {
+      title: 'Ogrzewanie',
+      text: 'Dobór średnicy rur na podstawie podanego przepływu. Obliczenie przepływu oraz średnic na podstawie podanej mocy i różnicy temperatur.',
+      gImage: data.heatImg,
+      path: '/ogrzewanie',
+    },
+    {
+      title: 'Wentylacja',
+      text: 'Automatyczny dobór kanałów wentylacyjnych Spiro w oparciu o podany przepływ. Obliczenie prędkości w kanale prostokątnym.',
+      gImage: data.ventImg,
+      path: '/wentylacja',
+    },
+    {
+      title: 'Wodociągi',
+      text: 'Automatyczny dobór średnic rur wodnych w oparciu o sumę wypływów normatywnych i przepływ obliczeniowy. Automatyczne obliczenie przepływu.',
+      gImage: data.waterImg,
+      path: '/woda',
+    },
+    {
+      title: 'Gaz',
+      text: 'Przeliczanie mocy urządzeń gazowych na wartość przepływu. Obliczenie spadku ciśnienia w przewodach oraz dobór średnicy.',
+      gImage: data.gasImg,
+      path: '/gaz',
+    },
+  ]
 
-    <Container>
-      Hello
-      <div>
-        fdsfsd fdsfpsjdfioshdfdf Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Accusantium provident quos voluptatum natus, ipsum numquam! Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Itaque laudantium distinctio quidem. Natus, ea.
-      </div>
-      <Divider variant="middle" />
+  return (
+    <>
+      <Hero />
       <br />
-      &nbsp; &nbsp;
-      <Button variant="outlined" color="error">
-        Outlined
-      </Button>
-      <br />
-      <br />
-      <Button variant="text" color="primary">
-        Text
-      </Button>
-      &nbsp;
-      <Button variant="contained" color="primary">
-        Contained
-      </Button>
-      &nbsp;
-      <Button variant="outlined" color="primary">
-        Outlined
-      </Button>
-      &nbsp;
-      <br />
-      <br />
-      <Button variant="text" color="warning">
-        Text
-      </Button>
-      &nbsp;
-      <Button variant="contained" color="warning">
-        Contained
-      </Button>
-      &nbsp;
-      <Button variant="outlined" color="warning">
-        Outlined
-      </Button>
-      <br />
-      <br />
-      &nbsp;
-      <Button variant="text" color="info">
-        Text
-      </Button>
-      &nbsp;
-      <Button variant="contained" color="info">
-        Contained
-      </Button>
-      &nbsp;
-      <Button variant="outlined" color="info">
-        Outlined
-      </Button>
-      <br />
-      <br />
-      &nbsp;
-      <Button variant="text" color="success">
-        Text
-      </Button>
-      &nbsp;
-      <Button variant="contained" color="success">
-        Contained
-      </Button>
-      &nbsp;
-      <Button variant="outlined" color="success">
-        Outlined
-      </Button>
-      <br />
-      <br />
-      <Link color="error" component={GLink} to="/404">
-        Link
-      </Link>
-    </Container>
-  </>
-)
+      <Container>
+        <Grid container spacing={2}>
+          {cardItems.map(({ title, text, gImage, path }) => (
+            <Grid key={path} xs={12} smm={6} lg={3} item>
+              <FrontPageCards title={title} text={text} gImage={gImage} path={path} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </>
+  )
+}
 
 export default IndexPage
+
+export const Head = () => <SEO />
+
+export const pageQuery = graphql`
+  query {
+    waterImg: file(relativeDirectory: { eq: "cards" }, name: { eq: "water" }) {
+      ...ChImage
+    }
+    gasImg: file(relativeDirectory: { eq: "cards" }, name: { eq: "gas" }) {
+      ...ChImage
+    }
+    heatImg: file(relativeDirectory: { eq: "cards" }, name: { eq: "heating" }) {
+      ...ChImage
+    }
+    ventImg: file(relativeDirectory: { eq: "cards" }, name: { eq: "vent" }) {
+      ...ChImage
+    }
+  }
+`
+export const query = graphql`
+  fragment ChImage on File {
+    childImageSharp {
+      gatsbyImageData(width: 610, quality: 70, formats: JPG, placeholder: TRACED_SVG)
+    }
+  }
+`
