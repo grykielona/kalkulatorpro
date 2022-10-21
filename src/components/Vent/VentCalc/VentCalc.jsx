@@ -3,10 +3,8 @@ import React from 'react'
 import VentCalcRect from './VentCalcRect'
 import VentCalcRound from './VentCalcRound'
 
-const GRID_SPACING = 1
-
 const VentCalc = () => (
-  <Grid container spacing={GRID_SPACING}>
+  <Grid container spacing={1}>
     <VentCalcRound />
     <VentCalcRect />
   </Grid>

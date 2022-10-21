@@ -50,7 +50,6 @@ const CustomTextField = ({
           ref.current.select()
         }
       }}
-      // TODO: filter e (exponent)
       onChange={(e) => onChange(fullEvent ? e : e.target.value)}
       name={name || label}
       value={value}

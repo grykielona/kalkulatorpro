@@ -14,6 +14,17 @@ export const validateTemp = (temp) => {
   return validTemp
 }
 
+export const validateValveAuth = (valveAuthority) => {
+  let validAuth = valveAuthority
+  if (valveAuthority > 0.99) {
+    validAuth = 0.99
+  }
+  if (valveAuthority < 0) {
+    validAuth = 0
+  }
+  return validAuth
+}
+
 export const validateEfficiency = (efficiency) => {
   let validated = efficiency
   if (efficiency > 100) {
@@ -433,3 +444,10 @@ export const calcTempAfterRecovery = (tempExt, tempExahust, efficiency) =>
 
 export const calcEfficiencyOfRecovery = (tempExt, tempExahust, tempSupply) =>
   ((tempSupply - tempExt) / (tempExahust - tempExt)) * 100
+
+export const getValvePrDropFromKv = (valveKV, flowCMPH) => (flowCMPH / valveKV) ** 2
+
+export const getValvePrDropFromAuth = (systemPrDrop, ValveAuthority) =>
+  (ValveAuthority * systemPrDrop) / (1 - ValveAuthority)
+
+export const getValveKv = (valvePrDrop, flowCMPH) => flowCMPH / valvePrDrop ** 0.5

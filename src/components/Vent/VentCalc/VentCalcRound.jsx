@@ -7,7 +7,6 @@ import TooMuchFlow from '../../Result/TooMuchFlow'
 
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
-const GRID_SPACING = 1
 
 const VentCalcRound = () => {
   const [flowRoundCMPH, setFlowRoundCMPH] = useState('')
@@ -37,7 +36,7 @@ const VentCalcRound = () => {
       <Grid item xs={12}>
         <Paper elevation={2} sx={paperSX}>
           <Typography sx={typograhySX}>Automatyczny dobór kanału okrągłego</Typography>
-          <Grid container spacing={GRID_SPACING} item xs={12}>
+          <Grid container spacing={1} item xs={12}>
             <Grid item xs={5}>
               <CustomTextField
                 label="Przepływ m3/h"

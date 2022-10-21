@@ -1,16 +1,14 @@
-import { Paper } from '@mui/material'
+import { Grid } from '@mui/material'
 import React from 'react'
+import ValveKvCalc from './ValveKvCalc'
+import ValvePressureDrop from './ValvePressureDrop'
 
 const AuthValveCalc = () => (
-  <Paper>
-    <div>AuthValveCalc</div>
-    <div>AuthValveCalc</div>
-    <div>AuthValveCalc</div>
-    <div>AuthValveCalc</div>
-    <div>AuthValveCalc</div>
-    <div>AuthValveCalc</div>
-    <div>AuthValveCalc</div>
-  </Paper>
+  <Grid container spacing={1}>
+    <ValveKvCalc />
+    <ValvePressureDrop />
+    {/* TODO figure out calc about true authority of the valve using previous calcs */}
+  </Grid>
 )
 
 export default AuthValveCalc

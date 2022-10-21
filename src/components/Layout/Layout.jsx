@@ -82,7 +82,7 @@ const Layout = ({ children }) => {
         <Grid item flexGrow={1}>
           {children}
         </Grid>
-        <Grid item sx={{ bgcolor: 'primary.main', mt: 2 }}>
+        <Grid item sx={{ bgcolor: 'primary.main', mt: 4 }}>
           <Footer />
         </Grid>
       </Grid>

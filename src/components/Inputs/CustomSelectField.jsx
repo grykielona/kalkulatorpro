@@ -11,6 +11,7 @@ const CustomSelectField = ({
   labelId,
   onChange,
   defaultValue = '',
+  dense = false,
 }) => {
   const [selectValue, setSelectValue] = useState(defaultValue)
   const { mode } = useDarkModeContext()
@@ -46,7 +47,7 @@ const CustomSelectField = ({
         }}
       >
         {menuItem?.map(({ itemValue, itemLabel }) => (
-          <MenuItem key={`${itemLabel}-${itemValue}`} value={itemValue}>
+          <MenuItem dense={dense} key={`${itemLabel}-${itemValue}`} value={itemValue}>
             {itemLabel}
           </MenuItem>
         ))}

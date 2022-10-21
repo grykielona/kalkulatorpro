@@ -67,7 +67,6 @@ module.exports = {
         ],
       },
     },
-    // TODO handle manifest for PWA
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

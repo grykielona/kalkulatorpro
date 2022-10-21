@@ -7,6 +7,7 @@ import {
   getFluidDensity,
   validateTemp,
 } from '../src/helpers/physicalCalculations'
+import { shouldCalculateInputs } from '../src/helpers/conditions'
 
 describe('physical calcs', () => {
   describe('validate temp', () => {
@@ -121,6 +122,17 @@ describe('physical calcs', () => {
       )
 
       expect(results).toBe(false)
+    })
+  })
+  describe('should calc inputs', () => {
+    it('should return true', () => {
+      const result = shouldCalculateInputs(2, 1)
+      expect(result).toBe(true)
+    })
+
+    it('should return false', () => {
+      const result = shouldCalculateInputs(2, 1, '')
+      expect(result).toBe(false)
     })
   })
 })

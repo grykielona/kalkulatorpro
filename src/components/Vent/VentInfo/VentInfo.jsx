@@ -10,31 +10,33 @@ const VentInfo = () => (
       <PipeList header="Kanały Spiro" pipeObject={spiro} />
     </CustomModal>
     <CustomModal maxWidth="md" label="POMOC" title="Instrukcja">
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
         Kanały wentylacyjne dobierane są w oparciu o kryterium prędkości.
       </Typography>
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
         Opór jednostkowy w Pa/m obliczany jest na podstawie wzoru Darcy-Weisbecha. Przyjęto
         chropowatość bezwględną dla stali ocynkowanej.
       </Typography>
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
         Podane dobory powinny zostać przeanalizowane przez projektanta i dostosowane odpowiednio do
         danej sytuacji projektowej.
       </Typography>
     </CustomModal>
     <CustomModal maxWidth="md" label="WIEDZA" title="Wiedza">
-      <Typography mb={2}>Kryterium prędkość dla doboru kanałów wynosi 5,5 m/s</Typography>
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
+        Kryterium prędkość dla doboru kanałów wynosi 5,5 m/s
+      </Typography>
+      <Typography variant="body1" mb={2}>
         Zalecana prędkość powietrza przy czerpni nie więcej niż 2,5 m/s
       </Typography>
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
         Zalecana prędkość powietrza przy wyrzutni nie więcej niż 4,0 m/s
       </Typography>
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
         W przypadku kanałów w obiektach przemysłowych prędkości powietrza w kanałach mogą być
         większe, rzędu 6-10 m/s
       </Typography>
-      <Typography mb={2}>
+      <Typography variant="body1" mb={2}>
         Dla kanałów przy nawiewnikach zaleca się prędkości mniejsze 3-4 m/s
       </Typography>
     </CustomModal>

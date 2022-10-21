@@ -11,7 +11,6 @@ import {
 import CustomTextField from '../Inputs/CustomTextField'
 import WaterCalcRsults from './WaterCalcRsults'
 
-const GRID_SPACING = 1
 const paperSX = {
   py: { xs: 1, md: 1.5 },
   px: 2,
@@ -85,7 +84,7 @@ const WaterItems = ({
     <Grid item xs={12}>
       <Paper elevation={2} sx={paperSX}>
         <Typography sx={typograhySX}>Przybory sanitarne</Typography>
-        <Grid container spacing={GRID_SPACING} item xs={12}>
+        <Grid container spacing={1} item xs={12}>
           <Grid item xs={3} md={1}>
             <CustomTextField
               fullEvent

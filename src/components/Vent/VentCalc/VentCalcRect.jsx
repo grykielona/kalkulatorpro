@@ -5,7 +5,6 @@ import CustomTextField from '../../Inputs/CustomTextField'
 
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
-const GRID_SPACING = 1
 
 const VentCalcRect = () => {
   const [flowRectCMPH, setFlowRectCMPH] = useState('')
@@ -46,7 +45,7 @@ const VentCalcRect = () => {
       <Grid item xs={12}>
         <Paper elevation={2} sx={paperSX}>
           <Typography sx={typograhySX}>Dobór kanału prostokątnego</Typography>
-          <Grid container spacing={GRID_SPACING} item xs={12}>
+          <Grid container spacing={1} item xs={12}>
             <Grid item xs={6}>
               <CustomTextField
                 helperText={flowRectCMPH && !sideA ? 'Podaj wymiar' : ''}

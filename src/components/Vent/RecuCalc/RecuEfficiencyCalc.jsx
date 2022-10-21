@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { calcEfficiencyOfRecovery, roundToDigits } from '../../../helpers/physicalCalculations'
 import CustomTextField from '../../Inputs/CustomTextField'
 
-const GRID_SPACING = 1
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
 
@@ -60,7 +59,7 @@ const RecuEfficiencyCalc = () => {
       <Grid item xs={12}>
         <Paper elevation={2} sx={paperSX}>
           <Typography sx={typograhySX}>Sprawność wymiennika</Typography>
-          <Grid container spacing={GRID_SPACING}>
+          <Grid container spacing={1}>
             <Grid xs={4} item>
               <CustomTextField
                 value={tempExternal}

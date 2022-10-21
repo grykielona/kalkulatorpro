@@ -1,4 +1,14 @@
-import { Box, Typography } from '@mui/material'
+import {
+  Box,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material'
 import React from 'react'
 import CustomModal from '../../CustomModal/CustomModal'
 import PipeListContainer from '../../Informations/PipeListContainer'
@@ -29,8 +39,10 @@ const WaterInfo = () => (
       </Typography>
     </CustomModal>
     <CustomModal maxWidth="md" label="WIEDZA" title="Wiedza">
-      <Typography>
+      <Typography mb={1} variant="h6">
         Wypływy normatywne
+      </Typography>
+      <Typography>
         <ul>
           <li>Umywalka - 0,07 dm3/s</li>
           <li>Zlewozmywak - 0,07 dm3/s</li>
@@ -42,6 +54,50 @@ const WaterInfo = () => (
           <li>Pisuar / Zawór czerpalny - 0,3 dm3/s</li>
         </ul>
       </Typography>
+      <Typography mb={1} variant="h6">
+        Prędkości przepływu
+      </Typography>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 280 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Rodzaj przewodu</TableCell>
+              <TableCell align="right">PN-92/B-01706 [m/s]</TableCell>
+              <TableCell align="right">DIN 1988 [m/s]</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell component="th" scope="row">
+                Połączenia od pionu do punktów czerp.
+              </TableCell>
+              <TableCell align="right">1,5</TableCell>
+              <TableCell align="right">2,0</TableCell>
+            </TableRow>
+            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell component="th" scope="row">
+                Piony w instalacjach wodociągowych
+              </TableCell>
+              <TableCell align="right">1,5</TableCell>
+              <TableCell align="right">2,0</TableCell>
+            </TableRow>
+            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell component="th" scope="row">
+                Przewody rozdzielcze
+              </TableCell>
+              <TableCell align="right">1,0</TableCell>
+              <TableCell align="right">1,5</TableCell>
+            </TableRow>
+            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell component="th" scope="row">
+                Połączenia wodociągowe
+              </TableCell>
+              <TableCell align="right">1,0</TableCell>
+              <TableCell align="right">1,5</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </CustomModal>
   </Box>
 )

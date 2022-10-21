@@ -1,6 +1,14 @@
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import React, { useState } from 'react'
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Link } from '@mui/material'
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Link,
+  Paper,
+} from '@mui/material'
 
 const CustomModal = ({ label, title, children, maxWidth = 'sm', link = false }) => {
   const [open, setOpen] = useState(false)
@@ -12,8 +20,6 @@ const CustomModal = ({ label, title, children, maxWidth = 'sm', link = false }) 
   const handleClose = () => {
     setOpen(false)
   }
-
-  // TODO custom scrollbar
 
   return (
     <>
@@ -40,7 +46,7 @@ const CustomModal = ({ label, title, children, maxWidth = 'sm', link = false }) 
       )}
       <Dialog fullWidth maxWidth={maxWidth} open={open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
-        <DialogContent>{children}</DialogContent>
+        <DialogContent component={Paper}>{children}</DialogContent>
         <DialogActions>
           <Button color="info" onClick={handleClose}>
             Zamknij

@@ -23,3 +23,23 @@ export const typeOfBuilding = [
   { itemLabel: 'Szpitale ', itemValue: 5 },
   { itemLabel: 'Szkoły ', itemValue: 6 },
 ]
+export const kvsValves = [
+  { itemLabel: '0,25', itemValue: 0.25 },
+  { itemLabel: '0,4', itemValue: 0.4 },
+  { itemLabel: '0,63', itemValue: 0.63 },
+  { itemLabel: '1,0', itemValue: 1 },
+  { itemLabel: '1,6', itemValue: 1.6 },
+  { itemLabel: '2,5', itemValue: 2.5 },
+  { itemLabel: '4,0', itemValue: 4 },
+  { itemLabel: '6,3', itemValue: 6.3 },
+  { itemLabel: '10', itemValue: 10 },
+  { itemLabel: '16', itemValue: 16 },
+  { itemLabel: '25', itemValue: 25 },
+  { itemLabel: '40', itemValue: 40 },
+  { itemLabel: '63', itemValue: 63 },
+  { itemLabel: '100', itemValue: 100 },
+  { itemLabel: '150', itemValue: 150 },
+  { itemLabel: '250', itemValue: 250 },
+  { itemLabel: '400', itemValue: 400 },
+  { itemLabel: '630', itemValue: 630 },
+]
