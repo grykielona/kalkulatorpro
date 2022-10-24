@@ -9,7 +9,7 @@ import { kvsValves } from '../../../helpers/enums'
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
 
-const ValvePressureDrop = () => {
+const ValvePressureDrop = ({ setTrueValvePrDrop }) => {
   const [valveKv, setValveKv] = useState('')
   const [flowCMPH, setFlowCMPH] = useState('')
   const [flowCDPS, setFlowCDPS] = useState('')
@@ -24,6 +24,7 @@ const ValvePressureDrop = () => {
             errMsg: 'Za duzy kvs w stosunku do przepływu',
             resultNumber: false,
           })
+      setTrueValvePrDrop(Calc.roundToDigits(valvePrDrop, 4))
       return
     }
     setResult({ errMsg: false, resultNumber: false })
