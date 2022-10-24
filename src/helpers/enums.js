@@ -15,6 +15,8 @@ export const pipeRoughness = [
   { itemLabel: 'Rury żeliwne nowe k=0,25 mm', itemValue: 0.25 },
 ]
 
+// TODO Copper pipes k=0.0015,
+
 export const typeOfBuilding = [
   { itemLabel: 'Budynki mieszkalne', itemValue: 1 },
   { itemLabel: 'Budynki biurowe i administracyjne', itemValue: 2 },

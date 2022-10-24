@@ -19,16 +19,32 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 900,
+              linkImagesToOriginal: false,
+              quality: 70,
+              tracedSVG: true,
+            },
+          },
+          {
+            resolve: `gatsby-plugin-catch-links`,
+            options: {
+              excludePattern: /(excluded-link|external)/,
             },
           },
         ],
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-catch-links`,
+    //   options: {
+    //     excludePattern: /(excluded-link|external)/,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -51,32 +67,17 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 800,
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'KalkulatorPro',
-        short_name: 'KalkulatorPro',
-        start_url: '/',
-        background_color: '#663399',
-        display: 'standalone',
-        icon: 'src/images/calk_logo.png',
-      },
-    },
+    `gatsby-remark-images`,
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     name: 'KalkulatorPro',
+    //     short_name: 'KalkulatorPro',
+    //     start_url: '/',
+    //     background_color: '#663399',
+    //     display: 'standalone',
+    //     icon: 'src/images/calk_logo.png',
+    //   },
+    // },
   ],
 }
