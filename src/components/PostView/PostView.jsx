@@ -1,20 +1,34 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { MDXProvider } from '@mdx-js/react'
-import { Container, Divider, Link, Typography } from '@mui/material'
+import { Container, Divider, Link, ListItem, Typography } from '@mui/material'
 import React from 'react'
 
 const MyH1 = (props) => <Typography variant="h1" {...props} />
 const MyH2 = (props) => <Typography variant="h2" {...props} />
 const MyH3 = (props) => <Typography variant="h3" {...props} />
 const MyH4 = (props) => (
-  <Typography variant="h4" sx={{ fontSize: { xs: '1.3rem', md: '1.8rem' }, my: 3 }} {...props} />
+  <Typography
+    variant="h4"
+    color="text.secondary"
+    sx={{ fontSize: { xs: '1.3rem', md: '1.8rem' }, my: 3 }}
+    {...props}
+  />
 )
 const MyH5 = (props) => (
-  <Typography variant="h5" sx={{ fontSize: { xs: '1.1rem', md: '1.4rem' }, my: 3 }} {...props} />
+  <Typography
+    variant="h5"
+    color="text.secondary"
+    sx={{ fontSize: { xs: '1.1rem', md: '1.4rem' }, my: 3 }}
+    {...props}
+  />
 )
-const MyH6 = (props) => <Typography variant="h6" {...props} />
-const MyParagraph = (props) => <Typography variant="body1" sx={{ mb: 1 }} {...props} />
+const MyH6 = (props) => <Typography color="text.secondary" variant="h6" {...props} />
+const MyParagraph = (props) => (
+  <Typography variant="body1" color="text.secondary" sx={{ mb: 1 }} {...props} />
+)
 const MyLink = (props) => <Link color="inherit" {...props} />
+
+const MyLi = (props) => <Typography component="li" color="text.secondary" {...props} />
 
 const PostView = ({ children, pageContext }) => {
   const components = {
@@ -26,17 +40,19 @@ const PostView = ({ children, pageContext }) => {
     h6: MyH6,
     p: MyParagraph,
     a: MyLink,
+    li: MyLi,
   }
 
   return (
-    <Container sx={{ mt: 2 }} maxWidth="md">
+    <Container color="text.secondary" sx={{ mt: 2 }} maxWidth="md">
       <Typography
         variant="h3"
+        color="text.secondary"
         sx={{ fontSize: { xs: '1.5rem', md: '2.1rem' }, mb: 2, mt: { xs: 1, md: 5 } }}
       >
         {pageContext.frontmatter.title}
       </Typography>
-      <Typography variant="body2" sx={{ mb: 1 }}>
+      <Typography color="text.secondary" variant="body2" sx={{ mb: 1 }}>
         {new Date(pageContext.frontmatter.date).toLocaleDateString()}
         <Typography component="span" sx={{ mx: 0.5 }}>
           {' '}

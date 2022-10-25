@@ -36,6 +36,7 @@ const Layout = ({ children }) => {
           mode,
           // primary: { main: '#c0c0c0' },
           primary: { main: PRIMARY_MAIN },
+          text: { secondary: mode === 'light' ? '#181818' : '#dddddd' },
         },
         breakpoints: {
           values: {
