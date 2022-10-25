@@ -7,7 +7,7 @@ import { shouldCalculateInputs, transformInpt } from '../../../helpers/condition
 const paperSX = { py: 1, px: 2 }
 const typograhySX = { fontSize: '0.8rem', textTransform: 'uppercase', mb: 2, mt: 1 }
 
-const ValveKvCalc = () => {
+const ValveKvCalc = ({ setSystemPrDrop }) => {
   const [valveAuthority, setValveAuthority] = useState(0.5)
   const [systemPressureDrop, setSystemPressureDrop] = useState('')
   const [flowCMPH, setFlowCMPH] = useState('')
@@ -19,6 +19,7 @@ const ValveKvCalc = () => {
       const valvePrDrop = Calc.getValvePrDropFromAuth(systemPressureDrop, valveAuthority)
       const valveKv = Calc.getValveKv(valvePrDrop, flowCMPH)
       setResult({ errMsg: false, valvePrDrop, valveKv })
+
       return
     }
     setResult({ errMsg: false, valvePrDrop: false, valveKv: false })
@@ -28,6 +29,7 @@ const ValveKvCalc = () => {
     setValveAuthority(Calc.validateValveAuth(transformInpt(e)))
   }
   const handleSystemPressureDropChange = (e) => {
+    setSystemPrDrop(transformInpt(e))
     setSystemPressureDrop(transformInpt(e))
   }
   const handleFlowCMPHChange = (e) => {
@@ -90,11 +92,11 @@ const ValveKvCalc = () => {
             <Typography variant="body2">
               Przy autorytecie {valveAuthority} oraz przepływie {flowCMPH} m3/h,
               <Typography component="span" variant="body1">
-                <strong> kv={Calc.roundToDigits(result.valveKv, 2)}</strong>{' '}
+                <strong> kv= {Calc.roundToDigits(result.valveKv, 2)}</strong>{' '}
               </Typography>
               m3/h oraz
               <Typography component="span" variant="body1">
-                <strong> ΔP={Calc.roundToDigits(result.valvePrDrop, 3)} </strong>
+                <strong> ΔP= {Calc.roundToDigits(result.valvePrDrop, 3)} </strong>
               </Typography>
               bar
             </Typography>

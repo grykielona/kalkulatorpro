@@ -5,9 +5,7 @@ import React from 'react'
 
 const MyH1 = (props) => <Typography variant="h1" {...props} />
 const MyH2 = (props) => <Typography variant="h2" {...props} />
-const MyH3 = (props) => (
-  <Typography variant="h3" sx={{ fontSize: '1rem', color: 'red' }} {...props} />
-)
+const MyH3 = (props) => <Typography variant="h3" {...props} />
 const MyH4 = (props) => (
   <Typography variant="h4" sx={{ fontSize: { xs: '1.3rem', md: '1.8rem' }, my: 3 }} {...props} />
 )

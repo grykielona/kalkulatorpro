@@ -15,11 +15,9 @@ import {
   TableRow,
 } from '@mui/material'
 
-# Czynniki grzewcze - woda i inne ciecze w instalacjach grzewczych
-
 Co płynie w naszych rurach, grzejnikach - ogólnie w instalacjach grzewczych? Najczęściej jest to oczywiście zwykła woda. Są jednak jeszcze inne ciecze, które znajdują się w systemach grzewczych. Są nimi przede wszystkim glikole, a kiedyś solanki.
 
-## Woda
+#### Woda
 
 Najczęściej spotykana ciecz w instalacjach. Jest tak dlatego, że to najtańszy, najpowszechniejszy płyn. Dodatkowo woda posiada wysokie ciepło właściwe na poziomie 4,2 kj / kg\*K - jest to większa wartość niż np. glikole. Ta właściwość fizyczna sprawia, że aby transportować określoną moc cieplną, potrzeba mniejszego przepływu wody niż glikolu. Dodatkowo woda ma mniejszą lepkość niż glikole co ma bezpośredni wpływ na wartość oporów liniowych i miejscowych w przewodach i armaturze. Obie te właściwości przekładają się na koszty pracy pomp obiegowych.
 Dodatkowo woda jest neutralna dla środowiska i dla zdrowia ludzkiego. Więc wszelkie wycieki nie stanowią pod tym względem problemu. Jeśli chodzi o same przewody i armaturę, to w przypadku twardej wody mogą się pojawić problemu po jakimś czasie. Na szczęście powszechne są zmiękczacze do wody kotłowej oraz dodatki w postaci inhibitorów korozji aby zabezpieczyć instalacje i urządzenia grzewcze.
@@ -27,13 +25,13 @@ Dodatkowo woda jest neutralna dla środowiska i dla zdrowia ludzkiego. Więc wsz
 Jedyny minus pojawia się w przypadku instalacji znajdujących się na zewnątrz budynków, lub w nieogrzewanych pomieszczeniach, gdzie temperatura potrafi spaść poniżej zera stopni celsjusza i są przestoje w pracy instalacji. Wtedy woda w przewodach po prostu zamarznie. Wpływa to niszcząco na armaturę.
 Żeby temu zapobiec są dwa rozwiązania. Zastosować ciecz niezamarzającą do wymaganej ujemnej temperatury np. do -25 st celsjusza, lub owinąć przewody kablami grzejnymi elektrycznymi i zaizolować. Zastosowanie drugiego sposobu niestesty nie jest 100% pewne, mogą się zdarzyć przestoje w dostawach prądy lub awarie.
 
-## Glikol propylenowy
+#### Glikol propylenowy
 
 Organiczny związek chemiczny z grupy alkoholi dwuhydroksylowych, czyli dioli. W temperaturze pokojowej jest bezbarwną, bezwonną, oleistą cieczą, o słodkawym smaku i wysokiej lepkości. Uznawany jest za związek nieszkodliwy dla zdrowia, lub o bardzo niskiej szkodliwości. Nie stwierdzono by powodował uczulenia, nie wykazuje rakotwórczości i nie jest mutagenny. Kontakt z nierozcieńczonym glikolem propylenowym może wywołać podrażnienia oczu i skóry, jednak niegroźne i łatwo ustępujące, zwykle wraz z ustaniem kontaktu. W ciele jest szybko przekształcany w kwas mlekowy (w sposób podobny do przekształcania w mięśniach cukru w energię). W środowisku łatwo ulega biodegradacji. Jest substancją bezpieczną nawet w stężeniu 50% w gotowym preparacie. W instalacjach stosuje się roztwory glikolu o odpowiednim stężeniu, zależnym od tego do jakiej temperatury potrzebujemy nasz roztwór aby nie zamarzał.
 
-<TableContainer component={Paper}>
-  <Table sx={{ minWidth: 280 }}>
-    <TableHead>
+<TableContainer component={Paper} sx={{ width: 'calc(90vw - 22px)', maxWidth: '100%' }}>
+  <Table sx={{ minWidth: '400px', width: '100%', overflowX: 'auto' }}>
+    <TableBody>
       <TableRow>
         <TableCell>Stężenie glikolu [%]</TableCell>
         <TableCell align="right">80</TableCell>
@@ -42,8 +40,6 @@ Organiczny związek chemiczny z grupy alkoholi dwuhydroksylowych, czyli dioli. W
         <TableCell align="right">37</TableCell>
         <TableCell align="right">33</TableCell>
       </TableRow>
-    </TableHead>
-    <TableBody>
       <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
         <TableCell component="th" scope="row">
           Temp. krystalizacji [°C]
@@ -77,28 +73,31 @@ Organiczny związek chemiczny z grupy alkoholi dwuhydroksylowych, czyli dioli. W
     </TableBody>
   </Table>
 </TableContainer>
-
 _Tabela 1. Właściwości glikolu propylenowego_
 
-## Glikol etylenowy
+#### Glikol etylenowy
 
 Organiczny związek chemiczny będący najprostszym alkoholem polihydroksylowym (diol), a zarazem i najprostszym alkoholem cukrowym. Jest szeroko stosowany jako składnik samochodowych płynów chłodzących, a także jako prekursor polimerów. W czystej postaci jest bezbarwną, bezzapachową, syropowatą cieczą o słodkawym posmaku. Glikol etylenowy jest toksyczny, a jego połknięcie może spowodować śmierć. Jest substancją szkodliwą, depresyjnie działającą na ośrodkowy układ nerwowy. Działa drażniąco na błony śluzowe nosa i spojówki. Organizm wchłania go poprzez drogi oddechowe, skórę oraz z przewodu pokarmowego. Drogą pokarmową glikol początkowo powoduje objawy podobne do upojenia alkoholem, po czym (po kilku bądź kilkunastu godzinach) doprowadza do kwasicy metabolicznej. W przypadku podgrzewania glikolu powstająca para może prowadzić do utraty przytomności, natomiast w małych stężeniach powoduje podrażnienie nosa i gardła oraz bóle głowy. Warto zatem przy pracy z glikolem zachować szczególną ostrożność.
 
-<TableContainer component={Paper}>
-  <Table sx={{ minWidth: 280 }}>
-    <TableHead>
+<TableContainer component={Paper} sx={{ width: 'calc(90vw - 22px)', maxWidth: '100%' }}>
+  <Table sx={{ minWidth: '400px', width: '100%', overflowX: 'auto' }}>
+    <TableBody>
       <TableRow>
-        <TableCell>Stężenie glikolu [%]</TableCell>
+        <TableCell
+          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        >
+          Stężenie glikolu [%]
+        </TableCell>
         <TableCell align="right">93</TableCell>
         <TableCell align="right">48</TableCell>
         <TableCell align="right">40</TableCell>
         <TableCell align="right">35</TableCell>
         <TableCell align="right">28</TableCell>
       </TableRow>
-    </TableHead>
-    <TableBody>
-      <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-        <TableCell component="th" scope="row">
+      <TableRow>
+        <TableCell
+          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        >
           Temp. krystalizacji [°C]
         </TableCell>
         <TableCell align="right">*</TableCell>
@@ -108,7 +107,7 @@ Organiczny związek chemiczny będący najprostszym alkoholem polihydroksylowym 
         <TableCell align="right">-15</TableCell>
       </TableRow>
       <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-        <TableCell component="th" scope="row">
+        <TableCell >
           Lepkość kin. [mm2/s] w 50°C
         </TableCell>
         <TableCell align="right">6,53</TableCell>
@@ -118,7 +117,7 @@ Organiczny związek chemiczny będący najprostszym alkoholem polihydroksylowym 
         <TableCell align="right">0,94</TableCell>
       </TableRow>
       <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-        <TableCell component="th" scope="row">
+        <TableCell >
           Ciepło właściwe [kJ/kgK]
         </TableCell>
         <TableCell align="right">2,50</TableCell>
@@ -128,16 +127,17 @@ Organiczny związek chemiczny będący najprostszym alkoholem polihydroksylowym 
         <TableCell align="right">3,77</TableCell>
       </TableRow>
     </TableBody>
+
   </Table>
 </TableContainer>
 
 _Tabela 2. Właściwości glikolu etylenowego_
 
-## Wady glikoli
+#### Wady glikoli
 
 Glikole mają większą lepkość od wody, tym samym powodują w instalacji większe opory tłoczenia. Dodatkowo cechują się mniejszym ciepłem właściwym przez co, aby dostarczyć daną moc grzewczą potrzeba większy przepływ glikolu niż wody. Wady te wpływają na większe opory tłoczenia w instalacji. Alkohole te są ponadto droższe od wody i wymagają innego podejścia przy wykonywaniu układu napełnienia instalacji.
 Przez swoją toksyczność glikol etylenowy jest raczej stosowany jako płyn do chłodnic samochodowych niż w instalacjach.
 
-## Podsumowanie
+#### Podsumowanie
 
 Instalacje nie mające kontaktu z ujemnymi temperaturami napełniamy wodą. Jest to najbardziej optymalne i proste rozwiązanie. W przypadku instalacja narażonych na “mrozy” najlepiej wykorzystać glikol propylenowy.
