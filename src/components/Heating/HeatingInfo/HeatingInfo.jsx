@@ -55,21 +55,24 @@ const HeatingInfo = () => (
             Obliczenia zaworów
           </Typography>
           <Typography mb={2} variant="body1">
-            Wprowadź kv zaworu w m3/h oraz przepływ w m3/h lub w dm3/s aby program obliczył spadek
-            na zaworze w barach i kilopaskalach
-          </Typography>
-          <Typography mb={2} variant="body1">
-            Wpisując przepływ w m3/h program przeliczy go na dm3/s i odwrotnie.
-          </Typography>
-          <Typography mb={2} variant="body1">
-            W drugim typie obliczeń wprowadź autorytet zaworu (domyślnie ustawiony 0.5); opory
-            obiegu, na którym będzie zamontowany zawór (bez oporu tego zaworu) oraz wprowadź
-            przepływ w m3/h lub w dm3/s aby programy obliczył wymagany Kv zaworu oraz spadek
-            ciśnienia na tym zaworze w barach.
+            wprowadź autorytet zaworu (domyślnie ustawiony 0.5); opory obiegu, na którym będzie
+            zamontowany zawór (bez oporu tego zaworu) oraz wprowadź przepływ w m3/h lub w dm3/s aby
+            programy obliczył wymagany Kv zaworu oraz spadek ciśnienia na tym zaworze w barach.
           </Typography>
           <Typography mb={2} variant="body1">
             Zalecany autorytet to 0,3 - 0,7. Maksymalna wartość autorytetu jaką można wprowadzić do
             obliczeń to 0.99
+          </Typography>
+          <Typography mb={2} variant="body1">
+            W drugim typie obliczeń wybierz zawór o odpowiednim kvs oraz przepływ w m3/h lub w dm3/s
+            aby program obliczył spadek na prawdziwym zaworze w barach i kilopaskalach
+          </Typography>
+          <Typography mb={2} variant="body1">
+            Dodatkowo aplikacja obliczy realny autorytet zaworu porównując spadek ciśnienia realnego
+            zaworu, do oporów w instalacji
+          </Typography>
+          <Typography mb={2} variant="body1">
+            Wpisując przepływ w m3/h program przeliczy go na dm3/s i odwrotnie.
           </Typography>
         </Grid>
       </Grid>
