@@ -68,16 +68,16 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     `gatsby-remark-images`,
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'KalkulatorPro',
-    //     short_name: 'KalkulatorPro',
-    //     start_url: '/',
-    //     background_color: '#663399',
-    //     display: 'standalone',
-    //     icon: 'src/images/calk_logo.png',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'KalkulatorPro',
+        short_name: 'KalkulatorPro',
+        start_url: '/',
+        background_color: '#663399',
+        display: 'standalone',
+        icon: 'src/images/calk_logo.png',
+      },
+    },
   ],
 }
