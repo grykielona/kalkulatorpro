@@ -56,7 +56,6 @@ const CustomTextField = ({
       disabled={disabled}
       inputRef={ref}
       size="small"
-      xw
       label={label}
       type="number"
       error={!!helperText}

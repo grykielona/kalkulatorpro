@@ -90,13 +90,20 @@ const ValveKvCalc = ({ setSystemPrDrop }) => {
         <Grid item xs={12}>
           <Paper elevation={2} sx={paperSX}>
             <Typography variant="body2">
-              Przy autorytecie {valveAuthority} oraz przepływie {flowCMPH} m3/h,
+              Przy autorytecie {valveAuthority} oraz przepływie {flowCMPH} m<sup>3</sup>/h,
+              obliczono
               <Typography component="span" variant="body1">
-                <strong> kv= {Calc.roundToDigits(result.valveKv, 2)}</strong>{' '}
+                <strong>
+                  {' '}
+                  kv<sub>zaw.</sub> = {Calc.roundToDigits(result.valveKv, 2)}
+                </strong>{' '}
               </Typography>
-              m3/h oraz
+              m<sup>3</sup>/h oraz
               <Typography component="span" variant="body1">
-                <strong> ΔP= {Calc.roundToDigits(result.valvePrDrop, 3)} </strong>
+                <strong>
+                  {' '}
+                  ΔP<sub>zaw.</sub> = {Calc.roundToDigits(result.valvePrDrop, 3)}{' '}
+                </strong>
               </Typography>
               bar
             </Typography>

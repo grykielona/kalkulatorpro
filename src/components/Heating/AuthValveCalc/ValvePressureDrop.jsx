@@ -27,6 +27,7 @@ const ValvePressureDrop = ({ setTrueValvePrDrop }) => {
       setTrueValvePrDrop(Calc.roundToDigits(valvePrDrop, 4))
       return
     }
+    setTrueValvePrDrop('')
     setResult({ errMsg: false, resultNumber: false })
   }, [valveKv, flowCMPH])
 
@@ -94,7 +95,7 @@ const ValvePressureDrop = ({ setTrueValvePrDrop }) => {
         <Grid item xs={12}>
           <Paper elevation={2} sx={paperSX}>
             <Typography variant="body2">
-              Spadek ciśnienia na zaworze przy przepływie {flowCMPH} m3/h wyniesie
+              Spadek ciśnienia na zaworze przy przepływie {flowCMPH} m<sup>3</sup>/h wyniesie
               <Typography component="span" variant="body1">
                 <strong> {result.resultNumber}</strong>{' '}
               </Typography>
