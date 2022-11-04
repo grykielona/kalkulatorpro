@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { MDXProvider } from '@mdx-js/react'
 import { Container, Divider, Link, ListItem, Typography } from '@mui/material'
+import { Link as GLink } from 'gatsby'
 import React from 'react'
+import CategoryDateDisplay from './CategoryDateDisplay'
 
 const MyH1 = (props) => <Typography variant="h1" {...props} />
 const MyH2 = (props) => <Typography variant="h2" {...props} />
@@ -10,7 +12,7 @@ const MyH4 = (props) => (
   <Typography
     variant="h4"
     color="text.secondary"
-    sx={{ fontSize: { xs: '1.3rem', md: '1.8rem' }, my: 3 }}
+    sx={{ fontSize: { xs: '1.5rem', md: '1.8rem' }, my: 3 }}
     {...props}
   />
 )
@@ -24,7 +26,12 @@ const MyH5 = (props) => (
 )
 const MyH6 = (props) => <Typography color="text.secondary" variant="h6" {...props} />
 const MyParagraph = (props) => (
-  <Typography variant="body1" color="text.secondary" sx={{ mb: 1 }} {...props} />
+  <Typography
+    variant="body1"
+    color="text.secondary"
+    sx={{ mb: 1, fontSize: '1.1rem' }}
+    {...props}
+  />
 )
 const MyLink = (props) => <Link color="inherit" {...props} />
 
@@ -44,24 +51,28 @@ const PostView = ({ children, pageContext }) => {
   }
 
   return (
-    <Container color="text.secondary" sx={{ mt: 2 }} maxWidth="md">
+    <Container color="text.secondary" sx={{ mt: 2 }} maxWidth="xsm">
       <Typography
         variant="h3"
         color="text.secondary"
-        sx={{ fontSize: { xs: '1.5rem', md: '2.1rem' }, mb: 2, mt: { xs: 1, md: 5 } }}
+        sx={{ fontSize: { xs: '1.6rem', md: '2.2rem' }, mb: 2, mt: { xs: 1, md: 5 } }}
       >
         {pageContext.frontmatter.title}
       </Typography>
-      <Typography color="text.secondary" variant="body2" sx={{ mb: 1 }}>
-        {new Date(pageContext.frontmatter.date).toLocaleDateString()}
-        <Typography component="span" sx={{ mx: 0.5 }}>
-          {' '}
-          |{' '}
-        </Typography>
-        {pageContext.frontmatter.category}
-      </Typography>
+      <CategoryDateDisplay
+        category={pageContext.frontmatter.category}
+        date={pageContext.frontmatter.date}
+      />
       <Divider sx={{ my: 2 }} />
       <MDXProvider components={components}>{children}</MDXProvider>
+      <Link
+        color="info.main"
+        sx={{ fontSize: '1.1rem', display: 'block', my: 3 }}
+        component={GLink}
+        to="/wiedza"
+      >
+        Powrót do listy
+      </Link>
     </Container>
   )
 }

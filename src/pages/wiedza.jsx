@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { SEO } from '../components/Layout/seo'
+import CategoryDateDisplay from '../components/PostView/CategoryDateDisplay'
 
 // TODO article 1 about heat fluid (water, glycol 2 types)
 // TODO art 2 about calc gas installation
@@ -12,8 +13,9 @@ import { SEO } from '../components/Layout/seo'
 const wiedza = ({ data }) => {
   const a = 5
   // TODO work on some design for posts list
+  console.log(data)
   return (
-    <Container sx={{ mt: 2, px: 1 }} maxWidth="sm">
+    <Container sx={{ mt: 2, px: 1 }} maxWidth="xsm">
       {data.allMdx.nodes.map(({ frontmatter, excerpt }) => (
         <Paper sx={{ mb: 2, p: 2 }} key={frontmatter.slug}>
           <Typography
@@ -21,7 +23,8 @@ const wiedza = ({ data }) => {
               display: 'inline-block',
               textDecoration: 'none',
               color: 'inherit',
-              mb: 1,
+              mb: 2,
+              fontSize: { xs: '1.7rem', sm: '2rem' },
             }}
             component={Link}
             to={frontmatter.slug}
@@ -30,11 +33,12 @@ const wiedza = ({ data }) => {
             {frontmatter.title}
           </Typography>
           <GatsbyImage image={frontmatter.featuredImage.childImageSharp.gatsbyImageData} />
-          <Typography variant="subtitle2">{frontmatter.date}</Typography>
-          <Typography variant="body1">{excerpt}</Typography>
+          <CategoryDateDisplay category={frontmatter.category} date={frontmatter.date} />
+          <Typography variant="body1" sx={{ fontSize: { xs: '1.1rem', md: '1.1rem' } }}>
+            {excerpt}
+          </Typography>
         </Paper>
       ))}
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </Container>
   )
 }
@@ -43,7 +47,7 @@ export default wiedza
 
 export const query = graphql`
   {
-    allMdx {
+    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
       nodes {
         id
         frontmatter {

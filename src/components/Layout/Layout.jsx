@@ -43,6 +43,7 @@ const Layout = ({ children }) => {
             xs: 0,
             smm: 450,
             sm: 600,
+            xsm: 750,
             md: 900,
             lg: 1200,
             xl: 1536,
