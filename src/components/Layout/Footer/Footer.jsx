@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Grid, Link, List, ListItem, Typography } from '@mui/material'
+import { Box, Container, Grid, Link, List, ListItem, Typography } from '@mui/material'
 import { Link as GLink } from 'gatsby'
 import React from 'react'
 import CustomModal from '../../CustomModal/CustomModal'

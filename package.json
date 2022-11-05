@@ -4,6 +4,17 @@
   "description": "kalkulatorpro",
   "version": "0.1.0",
   "author": "bk",
+   "scripts": {
+    "lint": "eslint ./src/ --ext .js --ext .jsx --ext ts --ext .tsx",
+    "lintfix": "eslint --fix ./src/ --ext .js --ext .jsx --ext ts --ext .tsx",
+    "build": "gatsby build",
+    "dev": "gatsby develop -H 0.0.0.0",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop --open",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "jest --watch"
+  },
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -49,15 +60,7 @@
     "gatsby"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop -H 0.0.0.0",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop --open",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "jest --watch"
-  },
+ 
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"

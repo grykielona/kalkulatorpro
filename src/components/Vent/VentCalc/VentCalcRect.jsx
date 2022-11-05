@@ -92,16 +92,12 @@ const VentCalcRect = () => {
               Dla przepływu
               <strong>{` ${flowRectCMPH} m3/h ~ ${flowRectCDPS} dm3/s `}</strong>w kanale{' '}
               <strong>
-                {sideA}x{sideB}
-              </strong>{' '}
-              mm
-              {`(${Calc.getRectAreaInSqM(sideA, sideB)}`}m<sup>2</sup>)
+                {sideA}x{sideB} mm {`(${Calc.getRectAreaInSqM(sideA, sideB)}`}m<sup>2</sup>){' '}
+              </strong>
             </Typography>
             <Typography variant="body1">
               prędkość wynosi
-              <strong>
-                <u> {Calc.roundToDigits(resultsRect, 2)} m/s</u>
-              </strong>
+              <strong> {Calc.roundToDigits(resultsRect, 2)} m/s</strong>
             </Typography>
           </Paper>
         </Grid>

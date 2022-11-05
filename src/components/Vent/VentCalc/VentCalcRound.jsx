@@ -65,7 +65,7 @@ const VentCalcRound = () => {
         <Grid item xs={12}>
           <Paper elevation={2} sx={paperSX}>
             <Typography sx={{ ...typograhySX, mb: 0 }}>Wyniki</Typography>
-            <Typography variant="body2">
+            <Typography variant="body1">
               Dla przepływu
               <strong>{` ${flowRoundCMPH} m3/h ~ ${flowRoundCDPS} dm3/s `}</strong>
               dobrano:

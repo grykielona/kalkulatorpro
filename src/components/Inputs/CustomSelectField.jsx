@@ -1,6 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import React, { useState } from 'react'
-import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
+import { useDarkModeContext } from '../Layout/Layout'
 
 const focusedColors = (mode) => (mode === 'light' ? 'primary.main' : 'grey.300')
 

@@ -1,4 +1,4 @@
-import { Divider, List, ListItem, Typography } from '@mui/material'
+import { List, ListItem, Typography } from '@mui/material'
 import React from 'react'
 
 const PipeList = ({ pipeObject, header }) => (

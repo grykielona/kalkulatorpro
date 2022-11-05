@@ -1,6 +1,7 @@
-import React from 'react'
-import { DarkModeContextProvider } from './src/contexts/DarkModeContextProvider'
+// import ReactDOM from 'react-dom'
 
-export const wrapRootElement = ({ element }) => (
-  <DarkModeContextProvider>{element}</DarkModeContextProvider>
-)
+// export function replaceHydrateFunction() {
+//   return (element, container, callback) => {
+//     ReactDOM.render(element, container, callback)
+//   }
+// }

@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
 import React, { useRef } from 'react'
-import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
+import { useDarkModeContext } from '../Layout/Layout'
 
 const focusedColors = (mode) => (mode === 'light' ? 'primary.main' : 'grey.300')
 

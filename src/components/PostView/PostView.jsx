@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { MDXProvider } from '@mdx-js/react'
-import { Container, Divider, Link, ListItem, Typography } from '@mui/material'
+import { Container, Divider, Link, Typography } from '@mui/material'
 import { Link as GLink } from 'gatsby'
 import React from 'react'
 import CategoryDateDisplay from './CategoryDateDisplay'

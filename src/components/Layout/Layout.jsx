@@ -1,19 +1,35 @@
 import { Grid } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import React, { useMemo } from 'react'
-import { useDarkModeContext } from '../../contexts/DarkModeContextProvider'
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import Footer from './Footer/Footer'
 import MainNavbar from './Navbar/MainNavbar'
 
+export const DarkModeContext = createContext()
+const isBrowser = typeof window !== 'undefined'
 const PRIMARY_MAIN = '#002C66'
+const darkModeLocalSt = isBrowser ? window.localStorage.getItem('darkMode') : null
 
 const Layout = ({ children }) => {
-  const { mode } = useDarkModeContext()
+  const [mode, setMode] = useState(darkModeLocalSt || 'light')
+  const darkModeProviderValue = useMemo(() => ({ mode, setMode }), [mode, setMode])
+
+  const [isClient, setIsClient] = useState(false)
+
+  // fixes gatsby rehydration issue with style (darkmode)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const isDark = mode === 'dark'
   const customTheme = useMemo(
     () =>
       createTheme({
+        palette: {
+          mode,
+          primary: { main: PRIMARY_MAIN },
+          text: { secondary: mode === 'light' ? '#181818' : '#dddddd' },
+        },
         components: {
           MuiTab: {
             styleOverrides: {
@@ -32,12 +48,7 @@ const Layout = ({ children }) => {
             },
           },
         },
-        palette: {
-          mode,
-          // primary: { main: '#c0c0c0' },
-          primary: { main: PRIMARY_MAIN },
-          text: { secondary: mode === 'light' ? '#181818' : '#dddddd' },
-        },
+
         breakpoints: {
           values: {
             xs: 0,
@@ -73,23 +84,33 @@ const Layout = ({ children }) => {
     [mode]
   )
 
-  return (
-    <ThemeProvider theme={customTheme}>
-      <CssBaseline />
+  // fixes gatsby rehydration issue with style (darkmode)
+  if (!isClient) return null
 
-      <Grid container direction="column" sx={{ minHeight: '100vh', minWidth: '300px' }}>
-        <Grid item>
-          <MainNavbar />
+  return (
+    <DarkModeContext.Provider value={darkModeProviderValue}>
+      <ThemeProvider theme={customTheme}>
+        <CssBaseline />
+        <Grid container direction="column" sx={{ minHeight: '100vh', minWidth: '300px' }}>
+          <Grid item>
+            <MainNavbar />
+          </Grid>
+          <Grid item flexGrow={1}>
+            {children}
+          </Grid>
+          <Grid item sx={{ bgcolor: 'primary.main', mt: 4 }}>
+            <Footer />
+          </Grid>
         </Grid>
-        <Grid item flexGrow={1}>
-          {children}
-        </Grid>
-        <Grid item sx={{ bgcolor: 'primary.main', mt: 4 }}>
-          <Footer />
-        </Grid>
-      </Grid>
-    </ThemeProvider>
+      </ThemeProvider>
+    </DarkModeContext.Provider>
   )
 }
 
 export default Layout
+
+export const useDarkModeContext = () => {
+  const ctx = useContext(DarkModeContext)
+  if (!ctx) throw new Error('Out of StyleContext')
+  return ctx
+}
