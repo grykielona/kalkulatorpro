@@ -17,7 +17,7 @@ const Footer = () => (
           <Typography sx={{ mb: 1 }} variant="body1">
             Kalkulatory inżynierskie zostały opracowane w oparciu o literature techniczną
           </Typography>
-          <Typography variant="caption">
+          <Typography sx={{ lineHeight: '1.1rem', fontSize: '0.8rem' }} variant="body2">
             Informacje zawarte na stronie mają charakter wyłącznie informacyjny. Wyniki obliczeń
             powinny być interpretowane przez projektanta. Informacje zawarte w serwisie nie stanowią
             doradztwa technicznego. Odpowiedzialność za wszelkie decyzje, dobory czy rozwiązania

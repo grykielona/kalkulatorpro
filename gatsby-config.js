@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: 'https://kalkulatorpro.pl',
     image: `/siteImage.png`,
   },
+  pathPrefix: '/kalkulatorpro',
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',

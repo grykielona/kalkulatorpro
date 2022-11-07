@@ -2,12 +2,14 @@
   "name": "kalkulatorpro",
   "private": true,
   "description": "kalkulatorpro",
+  "homepage": "http://kiliusz.github.io/kalkulatorpro",
   "version": "0.1.0",
   "author": "bk",
-   "scripts": {
+  "scripts": {
     "lint": "eslint ./src/ --ext .js --ext .jsx --ext ts --ext .tsx",
     "lintfix": "eslint --fix ./src/ --ext .js --ext .jsx --ext ts --ext .tsx",
     "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop --open",
@@ -51,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.1.1",
     "prettier": "^2.5.1",
@@ -60,7 +63,6 @@
     "gatsby"
   ],
   "license": "0BSD",
- 
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
