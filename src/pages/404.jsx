@@ -7,13 +7,13 @@ const NotFoundPage = () => (
   <Container maxWidth="md">
     <Typography sx={{ fontSize: ' 2rem' }}>Nie ma takiej strony...</Typography>
     <Link
-      sx={{ fontSize: '1.5rem' }}
+      sx={{ fontSize: '1.4rem' }}
       component="button"
       color="inherit"
       variant="body1"
       onClick={() => navigate(-1)}
     >
-      Wróć
+      Powrót do poprzedniej strony
     </Link>
   </Container>
 )
